@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dal7ooy6y7ghb"
-path="res://.godot/imported/TS_Underground.png-edb7801f1ccbbcd685fed06272d33877.ctex"
+path="res://.godot/imported/TS_Underground.png-d70595dee14988d963c13ceaa771ae08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TS_Underground.png"
-dest_files=["res://.godot/imported/TS_Underground.png-edb7801f1ccbbcd685fed06272d33877.ctex"]
+source_file="res://art/tilesets/TS_Underground.png"
+dest_files=["res://.godot/imported/TS_Underground.png-d70595dee14988d963c13ceaa771ae08.ctex"]
 
 [params]
 

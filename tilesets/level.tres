@@ -1,10 +1,10 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://v2h7m8kkt1rr"]
 
-[ext_resource type="Texture2D" uid="uid://dal7ooy6y7ghb" path="res://art/TS_Underground.png" id="1_xjyx0"]
+[ext_resource type="Texture2D" uid="uid://dal7ooy6y7ghb" path="res://art/tilesets/TS_Underground.png" id="1_eg1j7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j26xu"]
 resource_name = "Underground"
-texture = ExtResource("1_xjyx0")
+texture = ExtResource("1_eg1j7")
 texture_region_size = Vector2i(32, 32)
 0:1/0 = 0
 0:1/0/terrain_set = 0
