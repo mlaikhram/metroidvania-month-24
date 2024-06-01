@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://mqjn5vni3og3"]
+
+[ext_resource type="Texture2D" uid="uid://uaiqblc7fp1g" path="res://art/player/A_IceWall_Spawn.png" id="1_26in7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_globn"]
+atlas = ExtResource("1_26in7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftvg8"]
+atlas = ExtResource("1_26in7")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uchd"]
+atlas = ExtResource("1_26in7")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhx10"]
+atlas = ExtResource("1_26in7")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piumg"]
+atlas = ExtResource("1_26in7")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4ktr"]
+atlas = ExtResource("1_26in7")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hxowk"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_globn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftvg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uchd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhx10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_piumg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4ktr")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 8.0
+}]
+
+[node name="IceStatue" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hxowk")
+animation = &"spawn"
+frame = 5
+frame_progress = 1.0
