@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ovn5am2t187"]
+
+[ext_resource type="Texture2D" uid="uid://c18hc6t0e1846" path="res://icon.svg" id="1_2b18g"]
+[ext_resource type="Script" path="res://scripts/ImmovableEnemy.gd" id="2_gum71"]
+[ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="3_y57jq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qld7u"]
+size = Vector2(140, 140)
+
+[node name="TestEnemy" type="Node2D"]
+script = ExtResource("2_gum71")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2b18g")
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_y57jq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+shape = SubResource("RectangleShape2D_qld7u")

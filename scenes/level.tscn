@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://btqd3v64qlry0"]
+[gd_scene load_steps=4 format=3 uid="uid://btqd3v64qlry0"]
 
 [ext_resource type="TileSet" uid="uid://v2h7m8kkt1rr" path="res://tilesets/level.tres" id="1_xp6sc"]
 [ext_resource type="PackedScene" uid="uid://d2wmbd6sfp0ty" path="res://scenes/player.tscn" id="2_8tfjk"]
+[ext_resource type="PackedScene" uid="uid://2ovn5am2t187" path="res://scenes/test_enemy.tscn" id="3_3i1jy"]
 
 [node name="Level" type="Node2D"]
 
@@ -12,6 +13,9 @@ layer_0/tile_data = PackedInt32Array(-65535, 0, 0, -65534, 65536, 0, -65533, 655
 
 [node name="Player" parent="." instance=ExtResource("2_8tfjk")]
 position = Vector2(64, -32)
+
+[node name="TestEnemy" parent="." instance=ExtResource("3_3i1jy")]
+position = Vector2(529, -115)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(275, 0)
