@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://mqjn5vni3og3"]
+[gd_scene load_steps=13 format=3 uid="uid://mqjn5vni3og3"]
 
 [ext_resource type="Texture2D" uid="uid://uaiqblc7fp1g" path="res://art/player/A_IceWall_Spawn.png" id="1_26in7"]
+[ext_resource type="Script" path="res://scripts/Blockade.gd" id="1_q7jls"]
+[ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="2_mcfhv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_globn"]
 atlas = ExtResource("1_26in7")
@@ -28,11 +30,6 @@ region = Rect2(192, 96, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hxowk"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_globn")
@@ -57,10 +54,32 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="IceStatue" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neak0"]
+size = Vector2(28, 64)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uqyel"]
+radius = 8.0
+height = 64.0
+
+[node name="IceStatue" type="RigidBody2D"]
+lock_rotation = true
+script = ExtResource("1_q7jls")
+max_health = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_hxowk")
 animation = &"spawn"
-frame = 5
-frame_progress = 1.0
+autoplay = "spawn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_neak0")
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+collision_mask = 6
+script = ExtResource("2_mcfhv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+position = Vector2(0, -32)
+shape = SubResource("CapsuleShape2D_uqyel")

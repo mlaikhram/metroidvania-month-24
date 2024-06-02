@@ -1,12 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://d2wmbd6sfp0ty"]
+[gd_scene load_steps=38 format=3 uid="uid://d2wmbd6sfp0ty"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_lwr3b"]
 [ext_resource type="Texture2D" uid="uid://mjpi36frku0o" path="res://art/player/A_Player_Idle.png" id="2_bdhqm"]
+[ext_resource type="PackedScene" uid="uid://mqjn5vni3og3" path="res://scenes/ice_statue.tscn" id="2_kk2cp"]
 [ext_resource type="Texture2D" uid="uid://bll60o5m1ckvd" path="res://art/player/A_Player_Attack.png" id="2_viish"]
 [ext_resource type="Texture2D" uid="uid://ybffva5vqkkc" path="res://art/player/A_Player_Run.png" id="3_3203m"]
 [ext_resource type="Texture2D" uid="uid://dam64hf6pmk45" path="res://art/player/A_Player_Jump.png" id="4_0dgqn"]
 [ext_resource type="Texture2D" uid="uid://bnw408qi6u3x7" path="res://art/player/PE_DaggerAttack.png" id="6_84m20"]
 [ext_resource type="Script" path="res://scripts/Hitbox2D.gd" id="7_nibgo"]
+[ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="8_43dkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbrxl"]
 atlas = ExtResource("2_viish")
@@ -15,6 +17,22 @@ region = Rect2(0, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_staya"]
 atlas = ExtResource("2_viish")
 region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cq12"]
+atlas = ExtResource("3_3203m")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iciw6"]
+atlas = ExtResource("3_3203m")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcitr"]
+atlas = ExtResource("3_3203m")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig5s5"]
+atlas = ExtResource("3_3203m")
+region = Rect2(192, 96, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eim7j"]
 atlas = ExtResource("2_bdhqm")
@@ -103,6 +121,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8cq12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iciw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcitr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig5s5")
+}],
+"loop": false,
+"name": &"ice_spell",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_eim7j")
 }, {
 "duration": 1.0,
@@ -172,23 +207,30 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fhcec"]
-radius = 8.0
+radius = 14.0
 height = 64.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yuh08"]
 radius = 38.0
 height = 165.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0agw"]
+radius = 8.0
+height = 64.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_lwr3b")
+ice_statue = ExtResource("2_kk2cp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_xv226")
-animation = &"dagger"
+animation = &"ice_spell"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)
@@ -197,6 +239,7 @@ shape = SubResource("CapsuleShape2D_fhcec")
 [node name="DaggerHit" type="Sprite2D" parent="."]
 process_mode = 4
 visible = false
+z_index = 2
 position = Vector2(0, -48)
 texture = ExtResource("6_84m20")
 
@@ -209,3 +252,17 @@ script = ExtResource("7_nibgo")
 position = Vector2(75, 10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_yuh08")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -120)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("8_43dkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+position = Vector2(0, -32)
+shape = SubResource("CapsuleShape2D_s0agw")
