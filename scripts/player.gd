@@ -3,6 +3,7 @@ extends CharacterBody2D
 enum player_state {
 	IDLE,
 	DAGGER,
+	WIND_SPELL,
 	ICE_SPELL
 }
 
@@ -12,6 +13,7 @@ enum movement_type {
 	NONE
 }
 
+@export var wind_gust: PackedScene 
 @export var ice_statue: PackedScene
 
 @onready var _animated_sprite = $AnimatedSprite2D
@@ -26,6 +28,7 @@ var is_facing_right = true
 var current_state = player_state.IDLE
 var seconds_since_action_start = 0
 
+var current_wind_gust: Node2D
 var current_ice_statue: Node2D
 var move_to_position_x = 0
 
@@ -40,6 +43,8 @@ func _physics_process(delta):
 			_idle_physics_process(delta)
 		player_state.DAGGER:
 			_dagger_physics_process(delta)
+		player_state.WIND_SPELL:
+			_wind_spell_physics_process(delta)
 		player_state.ICE_SPELL:
 			_ice_spell_physics_process(delta)
 			
@@ -70,9 +75,7 @@ func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = mo
 func _on_animation_finished():
 	print("animation ended: " + _animated_sprite.animation)
 	match current_state:
-		player_state.DAGGER:
-			current_state = player_state.IDLE
-		player_state.ICE_SPELL:
+		player_state.DAGGER, player_state.WIND_SPELL, player_state.ICE_SPELL:
 			current_state = player_state.IDLE
 	
 
@@ -90,8 +93,12 @@ func _idle_physics_process(delta):
 		
 	# Handle attacks.
 	elif Input.is_action_just_pressed("player_attack"):
+		# Handle wind spell.
+		if Input.is_action_pressed("player_up"):
+			_start_wind_spell(delta)
 		# Handle dagger.
-		_start_dagger(delta)
+		else:
+			_start_dagger(delta)
 		
 	# Handle utilities.
 	elif Input.is_action_just_pressed("player_utility"):
@@ -109,7 +116,7 @@ func _start_dagger(delta):
 
 
 func _dagger_physics_process(delta):
-	var direction = _base_movement(delta, true, false, movement_type.AERIAL)
+	_base_movement(delta, true, false, movement_type.AERIAL)
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():
@@ -119,7 +126,35 @@ func _dagger_physics_process(delta):
 	if seconds_since_action_start >= 0.1:
 		$DaggerHit.hide()
 		$DaggerHit.set_process_mode(Node.PROCESS_MODE_DISABLED)
+
+
+func _start_wind_spell(delta):
+	if is_instance_valid(current_wind_gust):
+		return
 	
+	_animated_sprite.play("wind_spell")
+	current_state = player_state.WIND_SPELL
+	seconds_since_action_start = 0
+
+
+func _wind_spell_physics_process(delta):
+	_base_movement(delta, true, false)
+	
+	# Handle jump.
+	if Input.is_action_just_pressed("player_jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	
+	seconds_since_action_start += delta
+	if seconds_since_action_start >= 0.2 && not is_instance_valid(current_wind_gust):
+		current_wind_gust = wind_gust.instantiate()
+		owner.add_child(current_wind_gust)
+		current_wind_gust.position = global_position
+		current_wind_gust.position.x += 16 if is_facing_right else -16
+		current_wind_gust.position.y -= 32
+		current_wind_gust.get_node("FadeOutAnimatedSprite2D").flip_h = not is_facing_right
+		current_wind_gust.linear_velocity = 50 * (Vector2.RIGHT if is_facing_right else Vector2.LEFT) + 10 * Vector2.UP
+		seconds_since_action_start = -100
+
 
 func _start_ice_spell(delta):
 	_animated_sprite.play("ice_spell")
@@ -163,3 +198,4 @@ func _ice_spell_physics_process(delta):
 		current_ice_statue.position = global_position
 		current_ice_statue.position.x += 32 if is_facing_right else -32
 		current_ice_statue.get_node("AnimatedSprite2D").flip_h = not is_facing_right
+		seconds_since_action_start = -100
