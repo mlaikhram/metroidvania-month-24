@@ -81,7 +81,9 @@ func _on_animation_finished():
 
 func _idle_physics_process(delta):
 	var direction = _base_movement(delta)
-	if is_on_floor() && direction:
+	if not is_on_floor() && velocity.y > 0:
+		_animated_sprite.play("fall")
+	elif is_on_floor() && direction:
 		_animated_sprite.play("run")
 	elif is_on_floor():
 		_animated_sprite.play("idle")

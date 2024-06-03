@@ -15,9 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print("time left: " + str(time_left))
 	if time_left <= 0:
-		print("faded out")
 		owner.queue_free()
 	else:
 		time_left -= delta
