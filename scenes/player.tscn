@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://d2wmbd6sfp0ty"]
+[gd_scene load_steps=49 format=3 uid="uid://d2wmbd6sfp0ty"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_lwr3b"]
 [ext_resource type="Texture2D" uid="uid://mjpi36frku0o" path="res://art/player/A_Player_Idle.png" id="2_bdhqm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dam64hf6pmk45" path="res://art/player/A_Player_Jump.png" id="4_0dgqn"]
 [ext_resource type="Texture2D" uid="uid://bogg2j5nwwwbk" path="res://art/player/A_Player_Fall.png" id="5_qb4sa"]
 [ext_resource type="Texture2D" uid="uid://bnw408qi6u3x7" path="res://art/player/PE_DaggerAttack.png" id="6_84m20"]
+[ext_resource type="Texture2D" uid="uid://bfw2ugccrmb3c" path="res://art/player/A_Player_IceWall.png" id="6_baphy"]
 [ext_resource type="Script" path="res://scripts/Hitbox2D.gd" id="7_nibgo"]
 [ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="8_43dkg"]
 
@@ -23,6 +24,18 @@ region = Rect2(96, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_82m7p"]
 atlas = ExtResource("5_qb4sa")
 region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqig8"]
+atlas = ExtResource("6_baphy")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gipop"]
+atlas = ExtResource("6_baphy")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4jbg"]
+atlas = ExtResource("6_baphy")
+region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cq12"]
 atlas = ExtResource("3_3203m")
@@ -150,6 +163,20 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_sqig8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gipop")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_w4jbg")
+}],
+"loop": false,
+"name": &"ice_spell",
+"speed": 8.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8cq12")
 }, {
@@ -163,7 +190,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ig5s5")
 }],
 "loop": false,
-"name": &"ice_spell",
+"name": &"ice_spell_old",
 "speed": 3.0
 }, {
 "frames": [{
@@ -275,7 +302,7 @@ ice_statue = ExtResource("2_kk2cp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_xv226")
-animation = &"fall"
+animation = &"ice_spell"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
