@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bogg2j5nwwwbk" path="res://art/characters/player/A_Player_Fall.png" id="5_5rbrn"]
 [ext_resource type="Texture2D" uid="uid://bfw2ugccrmb3c" path="res://art/characters/player/A_Player_IceWall.png" id="6_5a5ub"]
 [ext_resource type="Texture2D" uid="uid://ybffva5vqkkc" path="res://art/characters/player/A_Player_Run.png" id="7_51bwn"]
+[ext_resource type="Texture2D" uid="uid://dmyrw3kx3c1pl" path="res://art/characters/user_dagger/PE_DaggerAttack.png" id="8_hhmkf"]
 [ext_resource type="Texture2D" uid="uid://celj80ff56yjs" path="res://art/characters/user_dagger/A_Dagger_Idle.png" id="8_wvd0f"]
 [ext_resource type="Texture2D" uid="uid://dam64hf6pmk45" path="res://art/characters/player/A_Player_Jump.png" id="9_umj3a"]
-[ext_resource type="Texture2D" uid="uid://bnw408qi6u3x7" path="res://art/characters/player/PE_DaggerAttack.png" id="10_a4hos"]
 [ext_resource type="Script" path="res://scripts/Hitbox2D.gd" id="11_psxss"]
 [ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="12_i4vrl"]
 
@@ -268,6 +268,7 @@ position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_xv226")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.235608
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)
@@ -278,7 +279,7 @@ process_mode = 4
 visible = false
 z_index = 2
 position = Vector2(0, -48)
-texture = ExtResource("10_a4hos")
+texture = ExtResource("8_hhmkf")
 
 [node name="Hitbox2D" type="Area2D" parent="DaggerHit"]
 collision_layer = 2
