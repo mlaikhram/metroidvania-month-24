@@ -1,31 +1,31 @@
 [gd_scene load_steps=13 format=3 uid="uid://mqjn5vni3og3"]
 
-[ext_resource type="Texture2D" uid="uid://uaiqblc7fp1g" path="res://art/player/A_IceWall_Spawn.png" id="1_26in7"]
 [ext_resource type="Script" path="res://scripts/Blockade.gd" id="1_q7jls"]
+[ext_resource type="Texture2D" uid="uid://uaiqblc7fp1g" path="res://art/characters/player/A_IceWall_Spawn.png" id="2_5hlo4"]
 [ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="2_mcfhv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_globn"]
-atlas = ExtResource("1_26in7")
+atlas = ExtResource("2_5hlo4")
 region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftvg8"]
-atlas = ExtResource("1_26in7")
+atlas = ExtResource("2_5hlo4")
 region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3uchd"]
-atlas = ExtResource("1_26in7")
+atlas = ExtResource("2_5hlo4")
 region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhx10"]
-atlas = ExtResource("1_26in7")
+atlas = ExtResource("2_5hlo4")
 region = Rect2(0, 96, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_piumg"]
-atlas = ExtResource("1_26in7")
+atlas = ExtResource("2_5hlo4")
 region = Rect2(96, 96, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4ktr"]
-atlas = ExtResource("1_26in7")
+atlas = ExtResource("2_5hlo4")
 region = Rect2(192, 96, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hxowk"]

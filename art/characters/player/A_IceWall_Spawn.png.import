@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ybffva5vqkkc"
-path="res://.godot/imported/A_Player_Run.png-7666e6d1db05406eb67fe680f601ac49.ctex"
+uid="uid://uaiqblc7fp1g"
+path="res://.godot/imported/A_IceWall_Spawn.png-7c771da9fb5118b6b793340fb94a02b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/A_Player_Run.png"
-dest_files=["res://.godot/imported/A_Player_Run.png-7666e6d1db05406eb67fe680f601ac49.ctex"]
+source_file="res://art/characters/player/A_IceWall_Spawn.png"
+dest_files=["res://.godot/imported/A_IceWall_Spawn.png-7c771da9fb5118b6b793340fb94a02b3.ctex"]
 
 [params]
 

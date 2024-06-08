@@ -13,13 +13,20 @@ enum movement_type {
 	NONE
 }
 
+@export var has_dagger = false
+@export var has_wind_spell = false
+@export var has_ice_spell = false
+
 @export var wind_gust: PackedScene 
 @export var ice_statue: PackedScene
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _spirit = $Spirit
+@onready var _dagger_hit = $DaggerHit
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const MAX_FALL_SPEED = 800.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -35,7 +42,7 @@ var move_to_position_x = 0
 func _ready():
 	_animated_sprite.animation_finished.connect(self._on_animation_finished)
 	
-	$DaggerHit.set_process(false)
+	_dagger_hit.set_process(false)
 
 func _physics_process(delta):
 	match current_state:
@@ -55,6 +62,7 @@ func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = mo
 	# Add the gravity.
 	if do_gravity && not is_on_floor():
 		velocity.y += gravity * delta
+		velocity.y = minf(velocity.y, MAX_FALL_SPEED)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -96,23 +104,25 @@ func _idle_physics_process(delta):
 	# Handle attacks.
 	elif Input.is_action_just_pressed("player_attack"):
 		# Handle wind spell.
-		if Input.is_action_pressed("player_up"):
+		if has_wind_spell && Input.is_action_pressed("player_up"):
 			_start_wind_spell(delta)
 		# Handle dagger.
-		else:
+		elif has_dagger:
 			_start_dagger(delta)
 		
 	# Handle utilities.
 	elif Input.is_action_just_pressed("player_utility"):
 		# Handle ice spell.
-		if Input.is_action_pressed("player_down"):
+		if has_ice_spell && Input.is_action_pressed("player_down"):
 			_start_ice_spell(delta)
 
 
 func _start_dagger(delta):
 	_animated_sprite.play("dagger")
-	$DaggerHit.set_process_mode(Node.PROCESS_MODE_ALWAYS)
-	$DaggerHit.show()
+	if is_instance_valid(_spirit):
+		_spirit.play_dagger()
+	_dagger_hit.set_process_mode(Node.PROCESS_MODE_ALWAYS)
+	_dagger_hit.show()
 	current_state = player_state.DAGGER
 	seconds_since_action_start = 0
 
@@ -126,8 +136,8 @@ func _dagger_physics_process(delta):
 	
 	seconds_since_action_start += delta
 	if seconds_since_action_start >= 0.1:
-		$DaggerHit.hide()
-		$DaggerHit.set_process_mode(Node.PROCESS_MODE_DISABLED)
+		_dagger_hit.hide()
+		_dagger_hit.set_process_mode(Node.PROCESS_MODE_DISABLED)
 
 
 func _start_wind_spell(delta):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnw408qi6u3x7"
-path="res://.godot/imported/PE_DaggerAttack.png-8f96ca4139cf04525d65360405809e11.ctex"
+uid="uid://mjpi36frku0o"
+path="res://.godot/imported/A_Player_Idle.png-c28f8b656b3154e1a04ac625389dfe7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/PE_DaggerAttack.png"
-dest_files=["res://.godot/imported/PE_DaggerAttack.png-8f96ca4139cf04525d65360405809e11.ctex"]
+source_file="res://art/characters/player/A_Player_Idle.png"
+dest_files=["res://.godot/imported/A_Player_Idle.png-c28f8b656b3154e1a04ac625389dfe7c.ctex"]
 
 [params]
 

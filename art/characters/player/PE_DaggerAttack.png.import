@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uaiqblc7fp1g"
-path="res://.godot/imported/A_IceWall_Spawn.png-a71ba9c09cb897ddbcd83b07384e3ce8.ctex"
+uid="uid://bnw408qi6u3x7"
+path="res://.godot/imported/PE_DaggerAttack.png-34858253ba43f3f3cf77306d41b99689.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/A_IceWall_Spawn.png"
-dest_files=["res://.godot/imported/A_IceWall_Spawn.png-a71ba9c09cb897ddbcd83b07384e3ce8.ctex"]
+source_file="res://art/characters/player/PE_DaggerAttack.png"
+dest_files=["res://.godot/imported/PE_DaggerAttack.png-34858253ba43f3f3cf77306d41b99689.ctex"]
 
 [params]
 

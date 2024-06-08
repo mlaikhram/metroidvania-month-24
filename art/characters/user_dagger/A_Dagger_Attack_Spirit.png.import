@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu1kxojcgbyno"
-path="res://.godot/imported/A_Player_Grapple.png-c69efddc208bcf65c721b24be95cd144.ctex"
+uid="uid://dt5le0jowqpdr"
+path="res://.godot/imported/A_Dagger_Attack_Spirit.png-f9fb13ec30280371007e8108fdc61213.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/A_Player_Grapple.png"
-dest_files=["res://.godot/imported/A_Player_Grapple.png-c69efddc208bcf65c721b24be95cd144.ctex"]
+source_file="res://art/characters/user_dagger/A_Dagger_Attack_Spirit.png"
+dest_files=["res://.godot/imported/A_Dagger_Attack_Spirit.png-f9fb13ec30280371007e8108fdc61213.ctex"]
 
 [params]
 

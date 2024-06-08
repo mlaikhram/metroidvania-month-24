@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://celj80ff56yjs"
-path="res://.godot/imported/A_DaggerSpirit_Idle.png-6d741ea7efbb21e5785438fd232d3a74.ctex"
+uid="uid://bogg2j5nwwwbk"
+path="res://.godot/imported/A_Player_Fall.png-f373f5eaf07bd98a3be9870f372b4f05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/spirits/dagger/A_DaggerSpirit_Idle.png"
-dest_files=["res://.godot/imported/A_DaggerSpirit_Idle.png-6d741ea7efbb21e5785438fd232d3a74.ctex"]
+source_file="res://art/characters/player/A_Player_Fall.png"
+dest_files=["res://.godot/imported/A_Player_Fall.png-f373f5eaf07bd98a3be9870f372b4f05.ctex"]
 
 [params]
 

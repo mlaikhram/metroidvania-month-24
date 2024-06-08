@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mjpi36frku0o"
-path="res://.godot/imported/A_Player_Idle.png-81bd4e984e265c40051d9db79aeac0ba.ctex"
+uid="uid://celj80ff56yjs"
+path="res://.godot/imported/A_Dagger_Idle.png-c6b8b8d1292e86c220f61d60ab116ada.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/A_Player_Idle.png"
-dest_files=["res://.godot/imported/A_Player_Idle.png-81bd4e984e265c40051d9db79aeac0ba.ctex"]
+source_file="res://art/characters/user_dagger/A_Dagger_Idle.png"
+dest_files=["res://.godot/imported/A_Dagger_Idle.png-c6b8b8d1292e86c220f61d60ab116ada.ctex"]
 
 [params]
 
