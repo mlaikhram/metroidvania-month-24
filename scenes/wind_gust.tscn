@@ -1,42 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://8oir6gep0t7r"]
+[gd_scene load_steps=7 format=3 uid="uid://8oir6gep0t7r"]
 
-[ext_resource type="Texture2D" uid="uid://c18hc6t0e1846" path="res://icon.svg" id="1_0j6ic"]
 [ext_resource type="Script" path="res://scripts/PushCircle2D.gd" id="1_aiyys"]
+[ext_resource type="Texture2D" uid="uid://t6142q2jjohp" path="res://art/characters/player/PE_Player_WindBlast.png" id="1_ipso5"]
 [ext_resource type="Script" path="res://scripts/FadeOutAnimatedSprite2D.gd" id="2_mncrd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b32vs"]
 radius = 48.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a5343"]
-atlas = ExtResource("1_0j6ic")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4mkc1"]
-atlas = ExtResource("1_0j6ic")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnm5u"]
-atlas = ExtResource("1_0j6ic")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vbnko"]
-atlas = ExtResource("1_0j6ic")
-region = Rect2(64, 64, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_infnq"]
+atlas = ExtResource("1_ipso5")
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x61yx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a5343")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4mkc1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nnm5u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vbnko")
+"texture": SubResource("AtlasTexture_infnq")
 }],
 "loop": true,
 "name": &"default",
@@ -56,6 +35,7 @@ sprite_frames = SubResource("SpriteFrames_x61yx")
 autoplay = "default"
 script = ExtResource("2_mncrd")
 time_to_fade_out = 1
+rotation_speed = 1440
 
 [node name="PushCircle2D" type="Area2D" parent="."]
 collision_layer = 2
