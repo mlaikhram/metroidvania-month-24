@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dam64hf6pmk45" path="res://art/characters/player/A_Player_Jump.png" id="8_tewq1"]
 [ext_resource type="Texture2D" uid="uid://ybffva5vqkkc" path="res://art/characters/player/A_Player_Run.png" id="9_x83n4"]
 [ext_resource type="Texture2D" uid="uid://bnw408qi6u3x7" path="res://art/characters/player/PE_DaggerAttack.png" id="10_76do3"]
+[ext_resource type="Texture2D" uid="uid://bqljb4kiakoy0" path="res://art/characters/player/A_Player_WindBlast.png" id="10_vcgc3"]
 [ext_resource type="PackedScene" uid="uid://dwejbdrhspf4s" path="res://scenes/spirit.tscn" id="12_mju76"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbrxl"]
@@ -110,21 +111,17 @@ region = Rect2(96, 96, 96, 96)
 atlas = ExtResource("9_x83n4")
 region = Rect2(192, 96, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_apqlx"]
-atlas = ExtResource("9_x83n4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xykg4"]
+atlas = ExtResource("10_vcgc3")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diuv5"]
+atlas = ExtResource("10_vcgc3")
 region = Rect2(96, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k546m"]
-atlas = ExtResource("9_x83n4")
-region = Rect2(96, 96, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yftne"]
-atlas = ExtResource("9_x83n4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyose"]
+atlas = ExtResource("10_vcgc3")
 region = Rect2(192, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_73f2c"]
-atlas = ExtResource("9_x83n4")
-region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xv226"]
 animations = [{
@@ -232,20 +229,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_apqlx")
+"texture": SubResource("AtlasTexture_xykg4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k546m")
+"texture": SubResource("AtlasTexture_diuv5")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yftne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_73f2c")
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_jyose")
 }],
 "loop": false,
 "name": &"wind_spell",
-"speed": 3.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fhcec"]
@@ -273,7 +267,7 @@ ice_statue = ExtResource("2_kk2cp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_xv226")
-animation = &"dagger"
+animation = &"wind_spell"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
