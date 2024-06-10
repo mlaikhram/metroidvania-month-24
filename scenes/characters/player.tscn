@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="8_43dkg"]
 [ext_resource type="Texture2D" uid="uid://dam64hf6pmk45" path="res://art/characters/player/A_Player_Jump.png" id="8_tewq1"]
 [ext_resource type="Texture2D" uid="uid://ybffva5vqkkc" path="res://art/characters/player/A_Player_Run.png" id="9_x83n4"]
-[ext_resource type="Texture2D" uid="uid://bnw408qi6u3x7" path="res://art/characters/player/PE_DaggerAttack.png" id="10_76do3"]
+[ext_resource type="Texture2D" uid="uid://0opk3wfk54s4" path="res://art/characters/player/PE_Player_DaggerAttack.png" id="10_76do3"]
 [ext_resource type="Texture2D" uid="uid://bqljb4kiakoy0" path="res://art/characters/player/A_Player_WindBlast.png" id="10_vcgc3"]
 [ext_resource type="PackedScene" uid="uid://dwejbdrhspf4s" path="res://scenes/spirit.tscn" id="12_mju76"]
 
