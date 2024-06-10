@@ -27,6 +27,7 @@ enum movement_type {
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_FALL_SPEED = 800.0
+const COYOTE_TIME = 0.08
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -34,6 +35,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_facing_right = true
 var current_state = player_state.IDLE
 var seconds_since_action_start = 0
+var seconds_since_started_falling = 0
 
 var current_wind_gust: Node2D
 var current_ice_statue: Node2D
@@ -59,6 +61,11 @@ func _physics_process(delta):
 
 
 func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = movement_type.ANY):
+	if is_on_floor():
+		seconds_since_started_falling = 0
+	else:
+		seconds_since_started_falling += delta
+	
 	# Add the gravity.
 	if do_gravity && not is_on_floor():
 		velocity.y += gravity * delta
@@ -97,7 +104,7 @@ func _idle_physics_process(delta):
 		_animated_sprite.play("idle")
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("player_jump") and is_on_floor():
+	if Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
 		velocity.y = JUMP_VELOCITY
 		_animated_sprite.play("jump")
 		
@@ -131,7 +138,7 @@ func _dagger_physics_process(delta):
 	_base_movement(delta, true, false, movement_type.AERIAL)
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("player_jump") and is_on_floor():
+	if Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
 		velocity.y = JUMP_VELOCITY
 	
 	seconds_since_action_start += delta
@@ -153,7 +160,7 @@ func _wind_spell_physics_process(delta):
 	_base_movement(delta, true, false)
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("player_jump") and is_on_floor():
+	if Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
 		velocity.y = JUMP_VELOCITY
 	
 	seconds_since_action_start += delta
