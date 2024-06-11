@@ -15,4 +15,4 @@ data_*/
 mono_crash.*.json
 
 # Mac why
-**.DS_Store
+**/.DS_Store
