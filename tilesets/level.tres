@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dal7ooy6y7ghb" path="res://art/tilesets/TS_Underground.png" id="1_eg1j7"]
 [ext_resource type="Texture2D" uid="uid://bmtfw80708q6n" path="res://art/tilesets/TS_Forest.png" id="2_5vdta"]
-[ext_resource type="Texture2D" uid="uid://by7w0pl6tv72v" path="res://art/tilesets/TS_Leaves.png" id="2_6v6qj"]
+[ext_resource type="Texture2D" uid="uid://csge2omoyydi5" path="res://art/tilesets/TS_Leaves.png" id="2_6v6qj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j26xu"]
 resource_name = "Underground"
