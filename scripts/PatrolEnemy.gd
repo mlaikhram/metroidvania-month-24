@@ -44,7 +44,7 @@ func _is_near_edge():
 	return not edge_result
 
 
-func take_damage(damage):
+func take_damage(hitbox):
 	print("killed me")
 	queue_free()
 

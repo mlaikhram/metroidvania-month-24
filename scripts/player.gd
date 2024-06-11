@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 enum player_state {
 	IDLE,
+	DAMAGED,
 	DAGGER,
 	WIND_SPELL,
 	ICE_SPELL
@@ -10,7 +11,8 @@ enum player_state {
 enum movement_type {
 	ANY,
 	AERIAL,
-	NONE
+	NONE,
+	UNCONTROLLED
 }
 
 @export var has_dagger = false
@@ -50,6 +52,8 @@ func _physics_process(delta):
 	match current_state:
 		player_state.IDLE:
 			_idle_physics_process(delta)
+		player_state.DAMAGED:
+			_damaged_physics_process(delta)
 		player_state.DAGGER:
 			_dagger_physics_process(delta)
 		player_state.WIND_SPELL:
@@ -81,7 +85,7 @@ func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = mo
 			scale.x = -1
 			is_facing_right = !is_facing_right
 
-	else:
+	elif movement != movement_type.UNCONTROLLED:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	return direction
@@ -90,7 +94,7 @@ func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = mo
 func _on_animation_finished():
 	print("animation ended: " + _animated_sprite.animation)
 	match current_state:
-		player_state.DAGGER, player_state.WIND_SPELL, player_state.ICE_SPELL:
+		player_state.DAMAGED, player_state.DAGGER, player_state.WIND_SPELL, player_state.ICE_SPELL:
 			current_state = player_state.IDLE
 	
 
@@ -122,6 +126,16 @@ func _idle_physics_process(delta):
 		# Handle ice spell.
 		if has_ice_spell && Input.is_action_pressed("player_down"):
 			_start_ice_spell(delta)
+
+
+func _start_damaged():
+	_animated_sprite.play("damaged")
+	current_state = player_state.DAMAGED
+	seconds_since_action_start = 0
+
+
+func _damaged_physics_process(delta):
+	_base_movement(delta, true, true, movement_type.UNCONTROLLED)
 
 
 func _start_dagger(delta):
@@ -222,3 +236,18 @@ func _ice_spell_physics_process(delta):
 		current_ice_statue.position.x += 32 if is_facing_right else -32
 		current_ice_statue.get_node("AnimatedSprite2D").flip_h = not is_facing_right
 		seconds_since_action_start = -100
+
+
+func take_damage(hitbox):
+	#current_health -= hitbox.damage
+	#if current_health <= 0:
+		#queue_free()
+
+	print("player taking damage: " + str(hitbox.damage))
+	var direction = -1 if hitbox.global_position.x >= global_position.x else 1
+	velocity = Vector2(direction * 250, -200)
+	if ((is_facing_right && direction > 0) || (!is_facing_right && direction < 0)):
+		scale.x = -1
+		is_facing_right = !is_facing_right
+	
+	_start_damaged()

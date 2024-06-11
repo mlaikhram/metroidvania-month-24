@@ -26,7 +26,7 @@ func _on_hitbox_entered(hitbox: Hitbox2D):
 		return
 	
 	if owner.has_method("take_damage"):
-		owner.take_damage(hitbox.damage)
+		owner.take_damage(hitbox)
 	else:
 		print("owner does not have take_damage")
 

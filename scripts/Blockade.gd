@@ -16,7 +16,7 @@ func _process(delta):
 	pass
 
 
-func take_damage(damage):
-	current_health -= damage
+func take_damage(hitbox):
+	current_health -= hitbox.damage
 	if current_health <= 0:
 		queue_free()
