@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://2ovn5am2t187"]
 
-[ext_resource type="Script" path="res://scripts/ImmovableEnemy.gd" id="2_gum71"]
+[ext_resource type="Script" path="res://scripts/PatrolEnemy.gd" id="1_eunii"]
 [ext_resource type="Texture2D" uid="uid://qhrqyq83jlo0" path="res://art/enemies/A_Parasite_Idle.png" id="2_myqcu"]
 [ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="3_y57jq"]
 
@@ -152,19 +152,20 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qld7u"]
-size = Vector2(100, 100)
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ye21"]
+radius = 18.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkn6c"]
-size = Vector2(140, 140)
+[sub_resource type="CircleShape2D" id="CircleShape2D_i41mf"]
+radius = 14.0
 
-[node name="TestEnemy" type="RigidBody2D"]
+[node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
-gravity_scale = 0.0
-script = ExtResource("2_gum71")
+script = ExtResource("1_eunii")
+edge_detecting_x_distance = 16
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_q3pdv")
 autoplay = "default"
 frame_progress = 0.800616
@@ -175,7 +176,9 @@ collision_mask = 2
 script = ExtResource("3_y57jq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
-shape = SubResource("RectangleShape2D_qld7u")
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_2ye21")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_wkn6c")
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_i41mf")

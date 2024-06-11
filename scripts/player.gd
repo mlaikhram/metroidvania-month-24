@@ -177,21 +177,25 @@ func _wind_spell_physics_process(delta):
 
 func _start_ice_spell(delta):
 	_animated_sprite.play("ice_spell")
-	if is_instance_valid(current_ice_statue):
-		current_ice_statue.queue_free()
 		
 	# determine if player needs to move (is against an obstruction)
 	var space_state = get_world_2d().direct_space_state
 	var final_x = global_position.x + (48 if is_facing_right else -48)
 	
 	var bottom_raycast = PhysicsRayQueryParameters2D.create(Vector2(global_position.x, global_position.y - 16), Vector2(final_x, global_position.y - 16))
-	bottom_raycast.exclude = [self, current_ice_statue]
-	var bottom_result = space_state.intersect_ray(bottom_raycast)
-	
+	bottom_raycast.exclude = [self]
+
 	var top_raycast = PhysicsRayQueryParameters2D.create(Vector2(global_position.x, global_position.y - 48), Vector2(final_x, global_position.y - 48))
-	top_raycast.exclude = [self, current_ice_statue]
-	var top_result = space_state.intersect_ray(top_raycast)
+	top_raycast.exclude = [self]
 	
+	if is_instance_valid(current_ice_statue):
+		bottom_raycast.exclude = [self, current_ice_statue]
+		top_raycast.exclude = [self, current_ice_statue]
+		current_ice_statue.queue_free()
+		
+	var bottom_result = space_state.intersect_ray(bottom_raycast)
+	var top_result = space_state.intersect_ray(top_raycast)
+		
 	var closest_obstruction_x_distance = minf(abs((final_x if not bottom_result else bottom_result.position.x) - global_position.x), abs((final_x if not top_result else top_result.position.x) - global_position.x))
 	print("closest obstruction distance from me: " + str(closest_obstruction_x_distance))
 	var move_to_x_distance = closest_obstruction_x_distance - 48

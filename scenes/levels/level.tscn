@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://btqd3v64qlry0"]
+[gd_scene load_steps=4 format=3 uid="uid://btqd3v64qlry0"]
 
 [ext_resource type="TileSet" uid="uid://v2h7m8kkt1rr" path="res://tilesets/level.tres" id="1_q7pem"]
 [ext_resource type="PackedScene" uid="uid://d2wmbd6sfp0ty" path="res://scenes/characters/player.tscn" id="2_1wmil"]
+[ext_resource type="PackedScene" uid="uid://2ovn5am2t187" path="res://scenes/test_enemy.tscn" id="3_cyfee"]
 
 [node name="Level" type="Node2D"]
 
@@ -12,3 +13,41 @@ layer_0/tile_data = PackedInt32Array(65535, 655360, 0, 0, 655360, 0, 65534, 6553
 
 [node name="Player" parent="." instance=ExtResource("2_1wmil")]
 z_index = -2
+
+[node name="Forest" type="Node" parent="."]
+
+[node name="TestEnemy" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(2432, 0)
+
+[node name="TestEnemy12" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(2848, 0)
+
+[node name="TestEnemy11" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(3712, 0)
+
+[node name="TestEnemy2" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(4128, -96)
+
+[node name="TestEnemy3" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(4544, 0)
+
+[node name="TestEnemy4" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(5120, 0)
+
+[node name="TestEnemy9" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(4960, -192)
+
+[node name="TestEnemy10" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(4448, -352)
+
+[node name="TestEnemy5" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(4640, -416)
+
+[node name="TestEnemy6" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(5632, -224)
+
+[node name="TestEnemy7" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(5600, 0)
+
+[node name="TestEnemy8" parent="Forest" instance=ExtResource("3_cyfee")]
+position = Vector2(6048, -512)
