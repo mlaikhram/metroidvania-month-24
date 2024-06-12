@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://d2wmbd6sfp0ty"]
+[gd_scene load_steps=50 format=3 uid="uid://d2wmbd6sfp0ty"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_lwr3b"]
 [ext_resource type="PackedScene" uid="uid://mqjn5vni3og3" path="res://scenes/ice_statue.tscn" id="2_kk2cp"]
 [ext_resource type="PackedScene" uid="uid://8oir6gep0t7r" path="res://scenes/wind_gust.tscn" id="2_loyfw"]
 [ext_resource type="Texture2D" uid="uid://bll60o5m1ckvd" path="res://art/characters/player/A_Player_Attack.png" id="4_ppvqv"]
 [ext_resource type="Texture2D" uid="uid://bogg2j5nwwwbk" path="res://art/characters/player/A_Player_Fall.png" id="5_lbind"]
+[ext_resource type="Texture2D" uid="uid://c67lrvw7pqnus" path="res://art/characters/player/A_Player_Hurt.png" id="5_qtgc3"]
 [ext_resource type="Texture2D" uid="uid://bfw2ugccrmb3c" path="res://art/characters/player/A_Player_IceWall.png" id="6_e5awa"]
 [ext_resource type="Script" path="res://scripts/Hitbox2D.gd" id="7_nibgo"]
 [ext_resource type="Texture2D" uid="uid://mjpi36frku0o" path="res://art/characters/player/A_Player_Idle.png" id="7_sbl6i"]
@@ -23,17 +24,17 @@ region = Rect2(0, 0, 96, 96)
 atlas = ExtResource("4_ppvqv")
 region = Rect2(96, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2eyaw"]
-atlas = ExtResource("9_x83n4")
-region = Rect2(96, 96, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l55l3"]
+atlas = ExtResource("5_qtgc3")
+region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i6ili"]
-atlas = ExtResource("9_x83n4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu184"]
+atlas = ExtResource("5_qtgc3")
 region = Rect2(96, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ukb3h"]
-atlas = ExtResource("9_x83n4")
-region = Rect2(288, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcbhg"]
+atlas = ExtResource("5_qtgc3")
+region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82m7p"]
 atlas = ExtResource("5_lbind")
@@ -149,14 +150,14 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2eyaw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i6ili")
-}, {
 "duration": 2.0,
-"texture": SubResource("AtlasTexture_ukb3h")
+"texture": SubResource("AtlasTexture_l55l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu184")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcbhg")
 }],
 "loop": false,
 "name": &"damaged",

@@ -92,7 +92,6 @@ func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = mo
 
 
 func _on_animation_finished():
-	print("animation ended: " + _animated_sprite.animation)
 	match current_state:
 		player_state.DAMAGED, player_state.DAGGER, player_state.WIND_SPELL, player_state.ICE_SPELL:
 			current_state = player_state.IDLE
@@ -130,6 +129,10 @@ func _idle_physics_process(delta):
 
 func _start_damaged():
 	_animated_sprite.play("damaged")
+	
+	_dagger_hit.hide()
+	_dagger_hit.set_process_mode(Node.PROCESS_MODE_DISABLED)
+		
 	current_state = player_state.DAMAGED
 	seconds_since_action_start = 0
 
@@ -211,7 +214,6 @@ func _start_ice_spell(delta):
 	var top_result = space_state.intersect_ray(top_raycast)
 		
 	var closest_obstruction_x_distance = minf(abs((final_x if not bottom_result else bottom_result.position.x) - global_position.x), abs((final_x if not top_result else top_result.position.x) - global_position.x))
-	print("closest obstruction distance from me: " + str(closest_obstruction_x_distance))
 	var move_to_x_distance = closest_obstruction_x_distance - 48
 	move_to_position_x = global_position.x + (move_to_x_distance if is_facing_right else -move_to_x_distance)
 	
