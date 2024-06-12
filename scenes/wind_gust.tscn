@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://8oir6gep0t7r"]
 
-[ext_resource type="Script" path="res://scripts/PushCircle2D.gd" id="1_aiyys"]
 [ext_resource type="Texture2D" uid="uid://t6142q2jjohp" path="res://art/characters/player/PE_Player_WindBlast.png" id="1_ipso5"]
-[ext_resource type="Script" path="res://scripts/FadeOutAnimatedSprite2D.gd" id="2_mncrd"]
+[ext_resource type="Script" path="res://scripts/utils/FadeOutAnimatedSprite2D.gd" id="2_obxam"]
+[ext_resource type="Script" path="res://scripts/utils/PushCircle2D.gd" id="3_hfk8m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b32vs"]
 radius = 48.0
@@ -33,14 +33,14 @@ shape = SubResource("CircleShape2D_b32vs")
 [node name="FadeOutAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x61yx")
 autoplay = "default"
-script = ExtResource("2_mncrd")
+script = ExtResource("2_obxam")
 time_to_fade_out = 1
 rotation_speed = 1440
 
 [node name="PushCircle2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
-script = ExtResource("1_aiyys")
+script = ExtResource("3_hfk8m")
 push_speed = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushCircle2D"]

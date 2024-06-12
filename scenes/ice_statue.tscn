@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Blockade.gd" id="1_q7jls"]
 [ext_resource type="Texture2D" uid="uid://uaiqblc7fp1g" path="res://art/characters/player/A_IceWall_Spawn.png" id="2_5hlo4"]
-[ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="2_mcfhv"]
+[ext_resource type="Script" path="res://scripts/utils/Hurtbox2D.gd" id="3_yce76"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_globn"]
 atlas = ExtResource("2_5hlo4")
@@ -78,7 +78,7 @@ shape = SubResource("RectangleShape2D_neak0")
 
 [node name="Hurtbox2D" type="Area2D" parent="."]
 collision_mask = 6
-script = ExtResource("2_mcfhv")
+script = ExtResource("3_yce76")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
 position = Vector2(0, -32)

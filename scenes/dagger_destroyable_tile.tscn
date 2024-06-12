@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d05sckkmrnui4"]
+
+[ext_resource type="Script" path="res://scripts/tiles/DestructibleTile.gd" id="1_8xllj"]
+[ext_resource type="Script" path="res://scripts/utils/Hurtbox2D.gd" id="2_fy8di"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elcn8"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecjre"]
+size = Vector2(32, 32)
+
+[node name="DaggerDestroyableTile" type="Sprite2D"]
+script = ExtResource("1_8xllj")
+hitbox_tags = Array[String](["dagger"])
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_elcn8")
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_fy8di")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+shape = SubResource("RectangleShape2D_ecjre")

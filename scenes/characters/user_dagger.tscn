@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://dtfl4xtuhu6dw"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_00sq8"]
+[ext_resource type="Script" path="res://scripts/entities/Player.gd" id="1_00sq8"]
 [ext_resource type="Texture2D" uid="uid://dcc6gxrrlk5os" path="res://art/characters/user_dagger/A_Dagger_Attack.png" id="2_y7fci"]
 [ext_resource type="Texture2D" uid="uid://cabnyi25chjbu" path="res://art/characters/user_dagger/A_Dagger_Fall.png" id="3_82b33"]
 [ext_resource type="Texture2D" uid="uid://ybffva5vqkkc" path="res://art/characters/player/A_Player_Run.png" id="3_rh1wk"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cx28w8n6wihjt" path="res://art/characters/user_dagger/A_Dagger_Run.png" id="6_lmrdc"]
 [ext_resource type="Texture2D" uid="uid://dmyrw3kx3c1pl" path="res://art/characters/user_dagger/PE_DaggerAttack.png" id="8_hhmkf"]
 [ext_resource type="Texture2D" uid="uid://celj80ff56yjs" path="res://art/characters/user_dagger/A_Dagger_Idle.png" id="8_wvd0f"]
-[ext_resource type="Script" path="res://scripts/Hitbox2D.gd" id="11_psxss"]
-[ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="12_i4vrl"]
+[ext_resource type="Script" path="res://scripts/utils/Hitbox2D.gd" id="11_psxss"]
+[ext_resource type="Script" path="res://scripts/utils/Hurtbox2D.gd" id="12_i4vrl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sppj0"]
 atlas = ExtResource("2_y7fci")
@@ -250,6 +250,7 @@ texture = ExtResource("8_hhmkf")
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("11_psxss")
+tag = "dagger"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DaggerHit/Hitbox2D"]
 position = Vector2(75, 10)

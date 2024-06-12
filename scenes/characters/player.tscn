@@ -1,15 +1,15 @@
 [gd_scene load_steps=50 format=3 uid="uid://d2wmbd6sfp0ty"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_lwr3b"]
+[ext_resource type="Script" path="res://scripts/entities/Player.gd" id="1_lwr3b"]
 [ext_resource type="PackedScene" uid="uid://mqjn5vni3og3" path="res://scenes/ice_statue.tscn" id="2_kk2cp"]
 [ext_resource type="PackedScene" uid="uid://8oir6gep0t7r" path="res://scenes/wind_gust.tscn" id="2_loyfw"]
 [ext_resource type="Texture2D" uid="uid://bll60o5m1ckvd" path="res://art/characters/player/A_Player_Attack.png" id="4_ppvqv"]
 [ext_resource type="Texture2D" uid="uid://bogg2j5nwwwbk" path="res://art/characters/player/A_Player_Fall.png" id="5_lbind"]
 [ext_resource type="Texture2D" uid="uid://c67lrvw7pqnus" path="res://art/characters/player/A_Player_Hurt.png" id="5_qtgc3"]
 [ext_resource type="Texture2D" uid="uid://bfw2ugccrmb3c" path="res://art/characters/player/A_Player_IceWall.png" id="6_e5awa"]
-[ext_resource type="Script" path="res://scripts/Hitbox2D.gd" id="7_nibgo"]
+[ext_resource type="Script" path="res://scripts/utils/Hitbox2D.gd" id="7_nibgo"]
 [ext_resource type="Texture2D" uid="uid://mjpi36frku0o" path="res://art/characters/player/A_Player_Idle.png" id="7_sbl6i"]
-[ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="8_43dkg"]
+[ext_resource type="Script" path="res://scripts/utils/Hurtbox2D.gd" id="8_43dkg"]
 [ext_resource type="Texture2D" uid="uid://dam64hf6pmk45" path="res://art/characters/player/A_Player_Jump.png" id="8_tewq1"]
 [ext_resource type="Texture2D" uid="uid://ybffva5vqkkc" path="res://art/characters/player/A_Player_Run.png" id="9_x83n4"]
 [ext_resource type="Texture2D" uid="uid://0opk3wfk54s4" path="res://art/characters/player/PE_Player_DaggerAttack.png" id="10_76do3"]
@@ -311,6 +311,7 @@ texture = ExtResource("10_76do3")
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_nibgo")
+tag = "dagger"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DaggerHit/Hitbox2D"]
 position = Vector2(75, 10)

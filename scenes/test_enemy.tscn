@@ -1,9 +1,9 @@
 [gd_scene load_steps=29 format=3 uid="uid://2ovn5am2t187"]
 
-[ext_resource type="Script" path="res://scripts/PatrolEnemy.gd" id="1_eunii"]
+[ext_resource type="Script" path="res://scripts/entities/PatrolEnemy.gd" id="1_eunii"]
 [ext_resource type="Texture2D" uid="uid://qhrqyq83jlo0" path="res://art/enemies/A_Parasite_Idle.png" id="2_myqcu"]
-[ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="3_y57jq"]
-[ext_resource type="Script" path="res://scripts/Hitbox2D.gd" id="4_vyobp"]
+[ext_resource type="Script" path="res://scripts/utils/Hurtbox2D.gd" id="3_y57jq"]
+[ext_resource type="Script" path="res://scripts/utils/Hitbox2D.gd" id="4_vyobp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aul6t"]
 atlas = ExtResource("2_myqcu")

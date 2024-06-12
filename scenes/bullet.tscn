@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://ca3a7cge6olc"]
 
 [ext_resource type="Script" path="res://scripts/Projectile.gd" id="1_pj4fu"]
-[ext_resource type="Script" path="res://scripts/Hitbox2D.gd" id="1_vucst"]
+[ext_resource type="Script" path="res://scripts/utils/Hitbox2D.gd" id="1_vucst"]
 [ext_resource type="Texture2D" uid="uid://c18hc6t0e1846" path="res://icon.svg" id="2_nio7e"]
-[ext_resource type="Script" path="res://scripts/Hurtbox2D.gd" id="3_r1547"]
+[ext_resource type="Script" path="res://scripts/utils/Hurtbox2D.gd" id="3_r1547"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ngyf"]
 
