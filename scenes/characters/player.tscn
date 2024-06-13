@@ -322,11 +322,6 @@ position = Vector2(98, 10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_yuh08")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -120)
-process_callback = 0
-position_smoothing_enabled = true
-
 [node name="Spirit" parent="." instance=ExtResource("12_mju76")]
 process_mode = 4
 z_index = -1

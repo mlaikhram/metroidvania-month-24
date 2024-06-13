@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg1wt4qf4wh8w"]
+[gd_scene load_steps=6 format=3 uid="uid://dg1wt4qf4wh8w"]
 
 [ext_resource type="TileSet" uid="uid://v2h7m8kkt1rr" path="res://tilesets/level.tres" id="1_h82ho"]
 [ext_resource type="PackedScene" uid="uid://dtfl4xtuhu6dw" path="res://scenes/characters/user_dagger.tscn" id="2_bk6ta"]
 [ext_resource type="PackedScene" uid="uid://2ovn5am2t187" path="res://scenes/enemies/basic_enemy_patrol.tscn" id="3_1om8p"]
-[ext_resource type="PackedScene" uid="uid://ca3a7cge6olc" path="res://scenes/bullet.tscn" id="4_duf75"]
+[ext_resource type="PackedScene" uid="uid://ca3a7cge6olc" path="res://scenes/poison_ball.tscn" id="4_duf75"]
+[ext_resource type="PackedScene" uid="uid://b2er7onqx60vn" path="res://scenes/traps/poison_geyser.tscn" id="5_if5gs"]
 
 [node name="Level" type="Node2D"]
 
@@ -21,3 +22,10 @@ position = Vector2(291, -78)
 [node name="Bullet" parent="." instance=ExtResource("4_duf75")]
 z_index = -3
 position = Vector2(377, -160)
+
+[node name="PoisonGeyser" parent="." instance=ExtResource("5_if5gs")]
+position = Vector2(108, -32)
+
+[node name="PoisonGeyser2" parent="." instance=ExtResource("5_if5gs")]
+position = Vector2(418, 32)
+rotation = -1.5708

@@ -24,9 +24,10 @@ enum movement_type {
 @export var wind_gust: PackedScene 
 @export var ice_statue: PackedScene
 
+@onready var _camera = $Camera2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _interactor = $Interactor2D
-@onready var _spirit = $Spirit
+@onready var _spirit = get_node_or_null("Spirit")
 @onready var _dagger_hit = $DaggerHit
 
 const SPEED = 300.0
@@ -48,9 +49,12 @@ var move_to_position_x = 0
 
 
 func _ready():
+	SignalBus._cutscene_ended.connect(_on_cutscene_ended)
 	_animated_sprite.animation_finished.connect(self._on_animation_finished)
 	
 	_dagger_hit.set_process(false)
+	
+	SignalBus.emit_signal("_request_camera", self)
 
 func _physics_process(delta):
 	match current_state:
@@ -95,6 +99,12 @@ func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = mo
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	return direction
+
+
+func _on_cutscene_ended():
+	if current_state == player_state.CUTSCENE:
+		SignalBus.emit_signal("_request_camera", self)
+		current_state = player_state.IDLE
 
 
 func _on_animation_finished():
@@ -291,7 +301,8 @@ func take_damage(hitbox):
 		#queue_free()
 
 	print("player taking damage: " + str(hitbox.damage))
-	_spirit.stop()
+	if is_instance_valid(_spirit):
+		_spirit.stop()
 	var direction = -1 if hitbox.global_position.x >= global_position.x else 1
 	velocity = Vector2(direction * 250, -200)
 	if ((is_facing_right && direction > 0) || (!is_facing_right && direction < 0)):

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2er7onqx60vn"]
+
+[ext_resource type="Texture2D" uid="uid://c1agfk4xnechn" path="res://art/environment/S_GeyserHole.png" id="1_o0t3x"]
+[ext_resource type="Script" path="res://scripts/traps/Spray.gd" id="2_v8ulq"]
+[ext_resource type="PackedScene" uid="uid://ca3a7cge6olc" path="res://scenes/poison_ball.tscn" id="3_7de8q"]
+
+[node name="PoisonGeyser" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_o0t3x")
+
+[node name="Spray" type="Node2D" parent="."]
+position = Vector2(0, -12)
+script = ExtResource("2_v8ulq")
+projectile = ExtResource("3_7de8q")
+velocity = Vector2(0, -400)
+degrees_of_error = 12.0
+x_error = 8.0
+fire_rate = 40.0
+on_duration = 3.0
+off_duration = 2.0

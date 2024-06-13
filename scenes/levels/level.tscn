@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://btqd3v64qlry0"]
+[gd_scene load_steps=15 format=3 uid="uid://btqd3v64qlry0"]
 
 [ext_resource type="TileSet" uid="uid://d2s8svc27bb5r" path="res://tilesets/background.tres" id="1_igp66"]
 [ext_resource type="TileSet" uid="uid://v2h7m8kkt1rr" path="res://tilesets/level.tres" id="1_q7pem"]
 [ext_resource type="PackedScene" uid="uid://d2wmbd6sfp0ty" path="res://scenes/characters/player.tscn" id="2_1wmil"]
+[ext_resource type="Script" path="res://scripts/utils/RequestableCamera2D.gd" id="2_vw6hq"]
 [ext_resource type="PackedScene" uid="uid://2ovn5am2t187" path="res://scenes/enemies/basic_enemy_patrol.tscn" id="3_cyfee"]
 [ext_resource type="AudioStream" uid="uid://b20m6se2apuce" path="res://sound/music/Cave.ogg" id="4_oi56o"]
 [ext_resource type="PackedScene" uid="uid://d05sckkmrnui4" path="res://scenes/dynamic_tiles/dagger_destroyable_tile.tscn" id="6_mlwqt"]
@@ -22,6 +23,12 @@ size = Vector2(64, 128)
 stream = ExtResource("4_oi56o")
 volume_db = -20.0
 autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -120)
+process_callback = 0
+position_smoothing_enabled = true
+script = ExtResource("2_vw6hq")
 
 [node name="TileMapBackground" type="TileMap" parent="."]
 modulate = Color(0.65, 0.65, 0.65, 1)
