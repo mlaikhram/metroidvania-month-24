@@ -14,15 +14,8 @@ func _ready():
 		connect("area_entered", self._on_push_circle_entered)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_hitbox_entered(hitbox: Hitbox2D):
-	print("area entered")
-	if hitbox == null:
-		print("not a hitbox")
+func _on_hitbox_entered(hitbox):
+	if hitbox == null || !hitbox is Hitbox2D:
 		return
 	
 	if owner.has_method("take_damage"):
@@ -31,10 +24,8 @@ func _on_hitbox_entered(hitbox: Hitbox2D):
 		print("owner does not have take_damage")
 
 
-func _on_push_circle_entered(pushCircle: PushCircle2D):
-	print("push circle entered")
-	if pushCircle == null:
-		print("not a push circle")
+func _on_push_circle_entered(pushCircle):
+	if pushCircle == null || !pushCircle is PushCircle2D:
 		return
 		
 	if owner.has_method("push_away_from"):

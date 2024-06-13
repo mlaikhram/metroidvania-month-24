@@ -11,11 +11,6 @@ func _ready():
 	print("ice statue health: " + str(current_health))
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func take_damage(hitbox):
 	current_health -= hitbox.damage
 	if current_health <= 0:

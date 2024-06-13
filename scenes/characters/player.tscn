@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://d2wmbd6sfp0ty"]
+[gd_scene load_steps=52 format=3 uid="uid://d2wmbd6sfp0ty"]
 
 [ext_resource type="Script" path="res://scripts/entities/Player.gd" id="1_lwr3b"]
 [ext_resource type="PackedScene" uid="uid://mqjn5vni3og3" path="res://scenes/ice_statue.tscn" id="2_kk2cp"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://0opk3wfk54s4" path="res://art/characters/player/PE_Player_DaggerAttack.png" id="10_76do3"]
 [ext_resource type="Texture2D" uid="uid://bqljb4kiakoy0" path="res://art/characters/player/A_Player_WindBlast.png" id="10_vcgc3"]
 [ext_resource type="PackedScene" uid="uid://dwejbdrhspf4s" path="res://scenes/spirit.tscn" id="12_mju76"]
+[ext_resource type="Script" path="res://scripts/utils/Interactor2D.gd" id="16_krx16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbrxl"]
 atlas = ExtResource("4_ppvqv")
@@ -271,15 +272,18 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fhcec"]
 radius = 14.0
-height = 64.0
+height = 62.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yuh08"]
 radius = 38.0
-height = 165.0
+height = 110.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0agw"]
 radius = 8.0
 height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18mks"]
+size = Vector2(32, 64)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -293,18 +297,18 @@ ice_statue = ExtResource("2_kk2cp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_xv226")
-animation = &"damaged"
+animation = &"dagger"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -31)
 shape = SubResource("CapsuleShape2D_fhcec")
 
 [node name="DaggerHit" type="Sprite2D" parent="."]
 process_mode = 4
 visible = false
 z_index = 2
-position = Vector2(0, -48)
+position = Vector2(-45, -48)
 texture = ExtResource("10_76do3")
 
 [node name="Hitbox2D" type="Area2D" parent="DaggerHit"]
@@ -314,7 +318,7 @@ script = ExtResource("7_nibgo")
 tag = "dagger"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DaggerHit/Hitbox2D"]
-position = Vector2(75, 10)
+position = Vector2(98, 10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_yuh08")
 
@@ -336,3 +340,12 @@ script = ExtResource("8_43dkg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
 position = Vector2(0, -32)
 shape = SubResource("CapsuleShape2D_s0agw")
+
+[node name="Interactor2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("16_krx16")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor2D"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_18mks")

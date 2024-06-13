@@ -1,8 +1,10 @@
+class_name Player
 extends CharacterBody2D
 
 enum player_state {
 	IDLE,
 	DAMAGED,
+	CUTSCENE,
 	DAGGER,
 	WIND_SPELL,
 	ICE_SPELL
@@ -23,6 +25,7 @@ enum movement_type {
 @export var ice_statue: PackedScene
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _interactor = $Interactor2D
 @onready var _spirit = $Spirit
 @onready var _dagger_hit = $DaggerHit
 
@@ -43,6 +46,7 @@ var current_wind_gust: Node2D
 var current_ice_statue: Node2D
 var move_to_position_x = 0
 
+
 func _ready():
 	_animated_sprite.animation_finished.connect(self._on_animation_finished)
 	
@@ -54,6 +58,8 @@ func _physics_process(delta):
 			_idle_physics_process(delta)
 		player_state.DAMAGED:
 			_damaged_physics_process(delta)
+		player_state.CUTSCENE:
+			_cutscene_physics_process(delta)
 		player_state.DAGGER:
 			_dagger_physics_process(delta)
 		player_state.WIND_SPELL:
@@ -64,7 +70,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = movement_type.ANY):
+func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = movement_type.ANY, override_direction = 0):
 	if is_on_floor():
 		seconds_since_started_falling = 0
 	else:
@@ -77,9 +83,9 @@ func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = mo
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("player_left", "player_right")
+	var direction = Input.get_axis("player_left", "player_right") if override_direction == 0 else float(override_direction)
 	if direction && (movement == movement_type.ANY || (movement == movement_type.AERIAL && not is_on_floor())):
-		velocity.x = direction * SPEED
+		velocity.x = (1 if direction > 0 else -1) * SPEED
 			
 		if flip_on_back && ((is_facing_right && direction < 0) || (!is_facing_right && direction > 0)):
 			scale.x = -1
@@ -105,9 +111,13 @@ func _idle_physics_process(delta):
 		_animated_sprite.play("run")
 	elif is_on_floor():
 		_animated_sprite.play("idle")
+		
+	# Handle cutscene.
+	if _interactor.has_interaction() && Input.is_action_just_pressed("player_interact"):
+		_start_cutscene()
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
+	elif Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
 		velocity.y = JUMP_VELOCITY
 		_animated_sprite.play("jump")
 		
@@ -115,16 +125,16 @@ func _idle_physics_process(delta):
 	elif Input.is_action_just_pressed("player_attack"):
 		# Handle wind spell.
 		if has_wind_spell && Input.is_action_pressed("player_up"):
-			_start_wind_spell(delta)
+			_start_wind_spell()
 		# Handle dagger.
 		elif has_dagger:
-			_start_dagger(delta)
+			_start_dagger()
 		
 	# Handle utilities.
 	elif Input.is_action_just_pressed("player_utility"):
 		# Handle ice spell.
 		if has_ice_spell && Input.is_action_pressed("player_down"):
-			_start_ice_spell(delta)
+			_start_ice_spell()
 
 
 func _start_damaged():
@@ -141,7 +151,40 @@ func _damaged_physics_process(delta):
 	_base_movement(delta, true, true, movement_type.UNCONTROLLED)
 
 
-func _start_dagger(delta):
+func _start_cutscene():
+	move_to_position_x = _interactor.prepare()
+	current_state = player_state.CUTSCENE
+	seconds_since_action_start = 0
+
+
+func _cutscene_physics_process(delta):
+	var difference_to_target_x = move_to_position_x - global_position.x
+	if abs(difference_to_target_x) > 3:
+		var direction = _base_movement(delta, true, true, movement_type.ANY, 1 if difference_to_target_x > 0 else -1)
+		if not is_on_floor() && velocity.y > 0:
+			_animated_sprite.play("fall")
+		elif is_on_floor() && direction:
+			_animated_sprite.play("run")
+			
+	else:
+		_animated_sprite.play("idle")
+		_base_movement(delta, true, true, movement_type.NONE)
+			
+		if _interactor.has_interaction() && \
+			((_interactor.should_face_interaction() && \
+				((global_position.x > _interactor.get_interaction_position().x && is_facing_right) || \
+				(global_position.x < _interactor.get_interaction_position().x && !is_facing_right))) || \
+			(!_interactor.should_face_interaction() && \
+				((global_position.x < _interactor.get_interaction_position().x && is_facing_right) || \
+				(global_position.x > _interactor.get_interaction_position().x && !is_facing_right)))):
+			scale.x = -1
+			is_facing_right = !is_facing_right
+			
+		elif _interactor.has_interaction():
+			_interactor.interact(self)
+		
+
+func _start_dagger():
 	_animated_sprite.play("dagger")
 	if is_instance_valid(_spirit):
 		_spirit.play_dagger()
@@ -164,7 +207,7 @@ func _dagger_physics_process(delta):
 		_dagger_hit.set_process_mode(Node.PROCESS_MODE_DISABLED)
 
 
-func _start_wind_spell(delta):
+func _start_wind_spell():
 	if is_instance_valid(current_wind_gust):
 		return
 	
@@ -192,7 +235,7 @@ func _wind_spell_physics_process(delta):
 		seconds_since_action_start = -100
 
 
-func _start_ice_spell(delta):
+func _start_ice_spell():
 	_animated_sprite.play("ice_spell")
 		
 	# determine if player needs to move (is against an obstruction)
@@ -241,6 +284,8 @@ func _ice_spell_physics_process(delta):
 
 
 func take_damage(hitbox):
+	if current_state == player_state.CUTSCENE:
+		return
 	#current_health -= hitbox.damage
 	#if current_health <= 0:
 		#queue_free()
@@ -253,3 +298,4 @@ func take_damage(hitbox):
 		is_facing_right = !is_facing_right
 	
 	_start_damaged()
+	
