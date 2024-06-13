@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Projectile.gd" id="1_pj4fu"]
 [ext_resource type="Script" path="res://scripts/utils/Hitbox2D.gd" id="1_vucst"]
-[ext_resource type="Texture2D" uid="uid://c18hc6t0e1846" path="res://icon.svg" id="2_nio7e"]
+[ext_resource type="Texture2D" uid="uid://dicny3x21hfw6" path="res://art/enemies/PE_PoisonParticle.png" id="2_tyohe"]
 [ext_resource type="Script" path="res://scripts/utils/Hurtbox2D.gd" id="3_r1547"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ngyf"]
@@ -17,8 +17,7 @@ script = ExtResource("1_pj4fu")
 shape = SubResource("CircleShape2D_7ngyf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_nio7e")
+texture = ExtResource("2_tyohe")
 
 [node name="Hitbox2D" type="Area2D" parent="."]
 collision_layer = 4

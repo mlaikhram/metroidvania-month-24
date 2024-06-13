@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://d2s8svc27bb5r" path="res://tilesets/background.tres" id="1_igp66"]
 [ext_resource type="TileSet" uid="uid://v2h7m8kkt1rr" path="res://tilesets/level.tres" id="1_q7pem"]
 [ext_resource type="PackedScene" uid="uid://d2wmbd6sfp0ty" path="res://scenes/characters/player.tscn" id="2_1wmil"]
-[ext_resource type="PackedScene" uid="uid://2ovn5am2t187" path="res://scenes/test_enemy.tscn" id="3_cyfee"]
+[ext_resource type="PackedScene" uid="uid://2ovn5am2t187" path="res://scenes/enemies/basic_enemy_patrol.tscn" id="3_cyfee"]
 [ext_resource type="AudioStream" uid="uid://b20m6se2apuce" path="res://sound/music/Cave.ogg" id="4_oi56o"]
 [ext_resource type="PackedScene" uid="uid://d05sckkmrnui4" path="res://scenes/dynamic_tiles/dagger_destroyable_tile.tscn" id="6_mlwqt"]
 [ext_resource type="Texture2D" uid="uid://cggr0vv63wl6p" path="res://art/tilesets/TS_Cuttable.png" id="7_3tl5n"]

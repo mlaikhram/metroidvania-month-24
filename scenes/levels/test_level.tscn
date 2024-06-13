@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://v2h7m8kkt1rr" path="res://tilesets/level.tres" id="1_h82ho"]
 [ext_resource type="PackedScene" uid="uid://dtfl4xtuhu6dw" path="res://scenes/characters/user_dagger.tscn" id="2_bk6ta"]
-[ext_resource type="PackedScene" uid="uid://2ovn5am2t187" path="res://scenes/test_enemy.tscn" id="3_1om8p"]
+[ext_resource type="PackedScene" uid="uid://2ovn5am2t187" path="res://scenes/enemies/basic_enemy_patrol.tscn" id="3_1om8p"]
 [ext_resource type="PackedScene" uid="uid://ca3a7cge6olc" path="res://scenes/bullet.tscn" id="4_duf75"]
 
 [node name="Level" type="Node2D"]

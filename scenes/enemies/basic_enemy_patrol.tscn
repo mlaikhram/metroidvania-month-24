@@ -162,12 +162,12 @@ radius = 15.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_qsnno"]
 radius = 14.0
 
-[node name="TestEnemy" type="CharacterBody2D"]
+[node name="BasicEnemyPatrol" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_eunii")
 edge_detecting_x_distance = 16
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_q3pdv")
 autoplay = "default"

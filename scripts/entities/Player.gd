@@ -291,6 +291,7 @@ func take_damage(hitbox):
 		#queue_free()
 
 	print("player taking damage: " + str(hitbox.damage))
+	_spirit.stop()
 	var direction = -1 if hitbox.global_position.x >= global_position.x else 1
 	velocity = Vector2(direction * 250, -200)
 	if ((is_facing_right && direction > 0) || (!is_facing_right && direction < 0)):

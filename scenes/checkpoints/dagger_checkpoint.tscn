@@ -68,6 +68,7 @@ radius = 48.0
 
 [node name="DaggerCheckpoint" type="Node2D"]
 script = ExtResource("1_8vv55")
+force_flashback = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)

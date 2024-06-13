@@ -8,8 +8,7 @@ func _ready():
 
 
 func _on_animation_finished():
-	_animated_sprite.hide()
-	_animated_sprite.set_process_mode(Node.PROCESS_MODE_DISABLED)
+	stop()
 
 
 func play_dagger():
@@ -17,3 +16,7 @@ func play_dagger():
 	_animated_sprite.show()
 	_animated_sprite.play("dagger")
 
+
+func stop():
+	_animated_sprite.hide()
+	_animated_sprite.set_process_mode(Node.PROCESS_MODE_DISABLED)
