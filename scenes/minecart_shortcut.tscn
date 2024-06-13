@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://byhaxu8b627ep"]
+
+[ext_resource type="Script" path="res://scripts/MinecartShortcut.gd" id="1_82ca1"]
+[ext_resource type="Texture2D" uid="uid://dtaqlqr4qrh0s" path="res://art/environment/S_Minecart.png" id="1_pxoem"]
+[ext_resource type="Texture2D" uid="uid://cnym40d27djn1" path="res://art/environment/S_ManaCrystal.png" id="2_oa2re"]
+
+[node name="MinecartShortcut" type="RigidBody2D"]
+freeze = true
+script = ExtResource("1_82ca1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(23, -48)
+rotation = -0.514736
+scale = Vector2(1, 1)
+texture = ExtResource("2_oa2re")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(32, -32)
+texture = ExtResource("2_oa2re")
+region_enabled = true
+region_rect = Rect2(2, 0, 30, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pxoem")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-48, 32, -48, -32, 16, -32, 16, -64, 48, -64, 48, 32)

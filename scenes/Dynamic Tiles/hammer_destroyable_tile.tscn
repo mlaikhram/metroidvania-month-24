@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxp3el862rdw5"]
+
+[ext_resource type="Script" path="res://scripts/tiles/DestructibleTile.gd" id="1_jtvyr"]
+[ext_resource type="Script" path="res://scripts/utils/Hurtbox2D.gd" id="2_kgp0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elcn8"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecjre"]
+size = Vector2(32, 32)
+
+[node name="HammerDestroyableTile" type="Sprite2D"]
+script = ExtResource("1_jtvyr")
+hitbox_tags = Array[String](["hammer"])
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_elcn8")
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_kgp0h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+shape = SubResource("RectangleShape2D_ecjre")
