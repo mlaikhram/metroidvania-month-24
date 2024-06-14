@@ -27,11 +27,12 @@ func _on_interaction_area_entered(interactor):
 	if interactor == null || !interactor is Interactor2D:
 		return
 	
-	interactor.set_current_interactible(self)
-	if force_interaction:
-		interactor.force()
-	else:
-		interaction_popup.show()
+	print("interaction area entered")
+	if interactor.set_current_interactible(self):
+		if force_interaction:
+			interactor.force()
+		else:
+			interaction_popup.show()
 
 func _on_interaction_area_exited(interactor):
 	if interactor == null || !interactor is Interactor2D:

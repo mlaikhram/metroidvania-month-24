@@ -102,6 +102,7 @@ func _on_cutscene_ended():
 	if current_state == player_state.CUTSCENE:
 		SignalBus.emit_signal("_request_camera", self)
 		current_state = player_state.IDLE
+		_interactor.end_interaction()
 
 
 func _on_animation_finished():

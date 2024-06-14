@@ -38,7 +38,7 @@ layer_0/tile_data = PackedInt32Array(65535, 655362, 0, 0, 655362, 0, 65534, 6553
 
 [node name="Player" parent="." instance=ExtResource("2_1wmil")]
 z_index = -2
-position = Vector2(3731, 1334)
+position = Vector2(6119, -95)
 
 [node name="Forest" type="Node" parent="."]
 
@@ -90,7 +90,7 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Forest/Dynamic Tiles/DaggerDestroyableTile"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65537, 262146, 2, -131072, 327682, 2, -65536, 524290, 1, -131071, 589826, 2, -65535, 589826, 2, -131070, 589826, 2, -65534, 589826, 2, -65533, 589826, 2)
 
@@ -102,7 +102,7 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [node name="TileMap2" type="TileMap" parent="Forest/Dynamic Tiles/DaggerDestroyableTile/DaggerDestroyableTile2"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 524290, 1, -65535, 589826, 2, -65534, 589826, 2, -65533, 589826, 2, -65532, 589826, 2)
 
@@ -114,7 +114,7 @@ region_rect = Rect2(0, 32, 32, 32)
 
 [node name="TileMap3" type="TileMap" parent="Forest/Dynamic Tiles/DaggerDestroyableTile/DaggerDestroyableTile2/DaggerDestroyableTile3"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 524290, 1, -65535, 589826, 2, -65534, 589826, 2, -65533, 589826, 2, -65532, 589826, 2, 0, 327682, 1, 65535, 655362, 0, 1, 589826, 2, 2, 589826, 2, 3, 589826, 2, 4, 589826, 2, 5, 589826, 2, 65541, 589826, 2, 65542, 589826, 2, 131078, 589826, 2, 131079, 589826, 2, 196615, 589826, 2, 131071, 589826, 2, 65536, 589826, 2, 65537, 589826, 2, 65538, 589826, 2, 65539, 589826, 2, 65540, 589826, 2, 131072, 589826, 2, 131073, 589826, 2, 131074, 589826, 2, 131075, 589826, 2, 131076, 589826, 2, 131077, 589826, 2, 196609, 589826, 2, 196610, 589826, 2, 196611, 589826, 2, 196612, 589826, 2, 196613, 589826, 2, 196614, 589826, 2, 196616, 589826, 2, 262145, 589826, 2, 262146, 589826, 2, 262147, 589826, 2, 262148, 589826, 2, 262149, 589826, 2, 262150, 589826, 2, 262151, 589826, 2, 262152, 589826, 2, 262153, 589826, 2, 327682, 589826, 2, 393218, 589826, 2, 458754, 589826, 2, 524290, 589826, 2, 589826, 589826, 2, 655362, 589826, 2, 327683, 589826, 2, 393219, 589826, 2, 458755, 589826, 2, 524291, 589826, 2, 589827, 589826, 2, 655363, 589826, 2, 327684, 589826, 2, 393220, 589826, 2, 458756, 589826, 2, 524292, 589826, 2, 589828, 589826, 2, 655364, 589826, 2, 327685, 589826, 2, 393221, 589826, 2, 458757, 589826, 2, 524293, 589826, 2, 589829, 589826, 2, 655365, 589826, 2, 327686, 589826, 2, 393222, 589826, 2, 458758, 589826, 2, 524294, 589826, 2, 589830, 589826, 2, 655366, 589826, 2, 327687, 589826, 2, 393223, 589826, 2, 458759, 589826, 2, 524295, 589826, 2, 589831, 589826, 2, 655367, 589826, 2, 327688, 589826, 2, 393224, 589826, 2, 458760, 589826, 2, 524296, 589826, 2, 589832, 589826, 2, 655368, 589826, 2, 327689, 589826, 2, 393225, 589826, 2, 458761, 589826, 2, 524297, 589826, 2, 589833, 589826, 2, 655369, 589826, 2, 262154, 589826, 2, 327690, 589826, 2, 393226, 589826, 2, 458762, 589826, 2, 524298, 589826, 2, 589834, 589826, 2, 655370, 589826, 2, 262155, 589826, 2, 327691, 589826, 2, 393227, 589826, 2, 458763, 589826, 2, 524299, 589826, 2, 589835, 589826, 2, 655371, 589826, 2, 262156, 589826, 2, 327692, 589826, 2, 393228, 589826, 2, 458764, 589826, 2, 524300, 589826, 2, 589836, 589826, 2, 655372, 589826, 2, 262157, 589826, 2, 327693, 589826, 2, 393229, 589826, 2, 458765, 589826, 2, 524301, 589826, 2, 589837, 589826, 2, 655373, 589826, 2, 262158, 589826, 2, 327694, 589826, 2, 393230, 589826, 2, 458766, 589826, 2, 524302, 589826, 2, 589838, 589826, 2, 655374, 589826, 2, 262159, 589826, 2, 327695, 589826, 2, 393231, 589826, 2, 458767, 589826, 2, 524303, 589826, 2, 589839, 589826, 2, 655375, 589826, 2, 262160, 589826, 2, 327696, 589826, 2, 393232, 589826, 2, 458768, 589826, 2, 524304, 589826, 2, 589840, 589826, 2, 655376, 589826, 2, 262161, 589826, 2, 327697, 589826, 2, 393233, 589826, 2, 458769, 589826, 2, 524305, 589826, 2, 589841, 589826, 2, 655377, 589826, 2, 262162, 589826, 2, 327698, 589826, 2, 393234, 589826, 2, 458770, 589826, 2, 524306, 589826, 2, 589842, 589826, 2, 655378, 589826, 2, 262163, 589826, 2, 327699, 589826, 2, 393235, 589826, 2, 458771, 589826, 2, 524307, 589826, 2, 589843, 589826, 2, 655379, 589826, 2, 262164, 589826, 2, 327700, 589826, 2, 393236, 589826, 2, 458772, 589826, 2, 524308, 589826, 2, 589844, 589826, 2, 655380, 589826, 2, 262165, 589826, 2, 327701, 589826, 2, 393237, 589826, 2, 458773, 589826, 2, 524309, 589826, 2, 589845, 589826, 2, 655381, 589826, 2, 262166, 589826, 2, 327702, 589826, 2, 393238, 589826, 2, 458774, 589826, 2, 524310, 589826, 2, 589846, 589826, 2, 655382, 589826, 2, 262167, 589826, 2, 327703, 589826, 2, 393239, 589826, 2, 458775, 589826, 2, 524311, 589826, 2, 589847, 589826, 2, 655383, 589826, 2, 720905, 589826, 2, 786441, 589826, 2, 851977, 589826, 2, 917513, 589826, 2, 983049, 589826, 2, 1048585, 589826, 2, 1114121, 589826, 2, 720906, 589826, 2, 786442, 589826, 2, 851978, 589826, 2, 917514, 589826, 2, 983050, 589826, 2, 1048586, 589826, 2, 1114122, 589826, 2, 720907, 589826, 2, 786443, 589826, 2, 851979, 589826, 2, 917515, 589826, 2, 983051, 589826, 2, 1048587, 589826, 2, 1114123, 589826, 2, 720908, 589826, 2, 786444, 589826, 2, 851980, 589826, 2, 917516, 589826, 2, 983052, 589826, 2, 1048588, 589826, 2, 1114124, 589826, 2, 720909, 589826, 2, 786445, 589826, 2, 851981, 589826, 2, 917517, 589826, 2, 983053, 589826, 2, 1048589, 589826, 2, 1114125, 589826, 2, 720910, 589826, 2, 786446, 589826, 2, 851982, 589826, 2, 917518, 589826, 2, 983054, 589826, 2, 1048590, 589826, 2, 1114126, 589826, 2, 720911, 589826, 2, 786447, 589826, 2, 851983, 589826, 2, 917519, 589826, 2, 983055, 589826, 2, 1048591, 589826, 2, 1114127, 589826, 2, 720912, 589826, 2, 786448, 589826, 2, 851984, 589826, 2, 917520, 589826, 2, 983056, 589826, 2, 1048592, 589826, 2, 1114128, 589826, 2, 720913, 589826, 2, 786449, 589826, 2, 851985, 589826, 2, 917521, 589826, 2, 983057, 589826, 2, 1048593, 589826, 2, 1114129, 589826, 2, 720914, 589826, 2, 786450, 589826, 2, 851986, 589826, 2, 917522, 589826, 2, 983058, 589826, 2, 1048594, 589826, 2, 1114130, 589826, 2, 720915, 589826, 2, 786451, 589826, 2, 851987, 589826, 2, 917523, 589826, 2, 983059, 589826, 2, 1048595, 589826, 2, 1114131, 589826, 2, 720916, 589826, 2, 786452, 589826, 2, 851988, 589826, 2, 917524, 589826, 2, 983060, 589826, 2, 1048596, 589826, 2, 1114132, 589826, 2, 720917, 589826, 2, 786453, 589826, 2, 851989, 589826, 2, 917525, 589826, 2, 983061, 589826, 2, 1048597, 589826, 2, 1114133, 589826, 2, 720918, 589826, 2, 786454, 589826, 2, 851990, 589826, 2, 917526, 589826, 2, 983062, 589826, 2, 1048598, 589826, 2, 1114134, 589826, 2, 720919, 589826, 2, 786455, 589826, 2, 851991, 589826, 2, 917527, 589826, 2, 983063, 589826, 2, 1048599, 589826, 2, 1114135, 589826, 2, 589848, 589826, 2, 655384, 589826, 2, 720920, 589826, 2, 786456, 589826, 2, 851992, 589826, 2, 917528, 589826, 2, 983064, 589826, 2, 1048600, 589826, 2, 1114136, 589826, 2)
 
@@ -132,7 +132,7 @@ region_rect = Rect2(0, 32, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Forest/Dynamic Tiles/DaggerDestroyableTile4"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65537, 65538, 0)
 
@@ -150,7 +150,7 @@ region_rect = Rect2(0, 32, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Forest/Dynamic Tiles/DaggerDestroyableTile5"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65537, 524289, 1)
 
@@ -168,7 +168,7 @@ region_rect = Rect2(0, 32, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Forest/Dynamic Tiles/DaggerDestroyableTile6"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65537, 393217, 2)
 
@@ -186,7 +186,7 @@ region_rect = Rect2(0, 32, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Forest/Dynamic Tiles/DaggerDestroyableTile8"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65537, 655361, 3, -131072, 655361, 2)
 
@@ -210,7 +210,7 @@ region_rect = Rect2(0, 32, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Forest/Dynamic Tiles/DaggerDestroyableTile7"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65537, 196609, 0)
 
@@ -255,6 +255,15 @@ position = Vector2(9408, 1696)
 
 [node name="TestEnemy22" parent="Underground/Enemies" instance=ExtResource("3_cyfee")]
 position = Vector2(9568, 1472)
+
+[node name="TestEnemy24" parent="Underground/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(7744, 640)
+
+[node name="TestEnemy25" parent="Underground/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(7360, 640)
+
+[node name="TestEnemy26" parent="Underground/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(6944, 704)
 
 [node name="Traps" type="Node" parent="Underground"]
 
@@ -340,7 +349,7 @@ region_rect = Rect2(32, 0, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Underground/Dynamic Tiles/DaggerDestroyableTile"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-196629, 589824, 2, -131093, 589824, 2, -65557, 589824, 2, -21, 589824, 2, -196628, 589824, 2, -131092, 589824, 2, -65556, 589824, 2, -20, 589824, 2, -196627, 589824, 2, -131091, 589824, 2, -65555, 589824, 2, -19, 589824, 2, -196626, 589824, 2, -131090, 589824, 2, -65554, 589824, 2, -18, 589824, 2, -196625, 589824, 2, -131089, 589824, 2, -65553, 589824, 2, -17, 589824, 2, -196624, 589824, 2, -131088, 589824, 2, -65552, 589824, 2, -16, 589824, 2, -196623, 589824, 2, -131087, 589824, 2, -65551, 589824, 2, -15, 589824, 2, -196622, 589824, 2, -131086, 589824, 2, -65550, 589824, 2, -14, 589824, 2, -196621, 589824, 2, -131085, 589824, 2, -65549, 589824, 2, -13, 589824, 2, -196620, 589824, 2, -131084, 589824, 2, -65548, 589824, 2, -12, 589824, 2, -196619, 589824, 2, -131083, 589824, 2, -65547, 589824, 2, -11, 589824, 2, -196618, 589824, 2, -131082, 589824, 2, -65546, 589824, 2, -10, 589824, 2, -196617, 589824, 2, -131081, 589824, 2, -65545, 589824, 2, -9, 589824, 2, -196616, 589824, 2, -131080, 589824, 2, -65544, 589824, 2, -8, 589824, 2, -196615, 589824, 2, -131079, 589824, 2, -65543, 589824, 2, -7, 589824, 2, -196614, 589824, 2, -131078, 589824, 2, -65542, 589824, 2, -6, 589824, 2, -196613, 589824, 2, -131077, 589824, 2, -65541, 589824, 2, -5, 589824, 2, -196612, 589824, 2, -131076, 589824, 2, -65540, 589824, 2, -4, 589824, 2, -196611, 589824, 2, -131075, 589824, 2, -65539, 589824, 2, -3, 589824, 2, -196610, 589824, 2, -131074, 589824, 2, -65538, 393216, 2, -2, 720896, 2)
 
@@ -352,7 +361,7 @@ region_rect = Rect2(32, 0, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Underground/Dynamic Tiles/DaggerDestroyableTile2"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-2, 720896, 2, -21, 589824, 2, -20, 589824, 2, -19, 589824, 2, -18, 589824, 2, -17, 589824, 2, -16, 589824, 2, -15, 589824, 2, -14, 589824, 2, -13, 589824, 2, -12, 589824, 2, -11, 589824, 2, -10, 589824, 2, -9, 589824, 2, -8, 589824, 2, -7, 589824, 2, -6, 589824, 2, -5, 589824, 2, -4, 589824, 2, -3, 589824, 2)
 
@@ -364,7 +373,7 @@ region_rect = Rect2(32, 0, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Underground/Dynamic Tiles/DaggerDestroyableTile3"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-2, 720896, 2, -21, 589824, 2, -20, 589824, 2, -19, 589824, 2, -18, 589824, 2, -17, 589824, 2, -16, 589824, 2, -15, 589824, 2, -14, 589824, 2, -13, 589824, 2, -12, 589824, 2, -11, 589824, 2, -10, 589824, 2, -9, 589824, 2, -8, 589824, 2, -7, 589824, 2, -6, 589824, 2, -5, 589824, 2, -4, 589824, 2, -3, 589824, 2, 65534, 393216, 1, 65515, 589824, 2, 131051, 589824, 2, 196587, 589824, 2, 65516, 589824, 2, 131052, 589824, 2, 196588, 589824, 2, 65517, 589824, 2, 131053, 589824, 2, 196589, 589824, 2, 65518, 589824, 2, 131054, 589824, 2, 196590, 589824, 2, 65519, 589824, 2, 131055, 589824, 2, 196591, 589824, 2, 65520, 589824, 2, 131056, 589824, 2, 196592, 589824, 2, 65521, 589824, 2, 131057, 589824, 2, 196593, 589824, 2, 65522, 589824, 2, 131058, 589824, 2, 196594, 589824, 2, 65523, 589824, 2, 131059, 589824, 2, 196595, 589824, 2, 65524, 589824, 2, 131060, 589824, 2, 196596, 589824, 2, 65525, 589824, 2, 131061, 589824, 2, 196597, 589824, 2, 65526, 589824, 2, 131062, 589824, 2, 196598, 589824, 2, 65527, 589824, 2, 131063, 589824, 2, 196599, 589824, 2, 65528, 589824, 2, 131064, 589824, 2, 196600, 589824, 2, 65529, 589824, 2, 131065, 589824, 2, 196601, 589824, 2, 65530, 589824, 2, 131066, 589824, 2, 196602, 589824, 2, 65531, 589824, 2, 131067, 589824, 2, 196603, 589824, 2, 65532, 589824, 2, 131068, 589824, 2, 196604, 589824, 2, 65533, 589824, 2, 131069, 589824, 2, 196605, 589824, 2, 131070, 589824, 2)
 
@@ -556,7 +565,7 @@ region_rect = Rect2(32, 0, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Underground/Dynamic Tiles/DaggerDestroyableTile44"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 524288, 1, -131072, 327680, 2, -65535, 589824, 2, -65534, 589824, 2, -65533, 589824, 2, -65532, 589824, 2, -65531, 589824, 2, -65530, 589824, 2, -131071, 589824, 2, -131070, 589824, 2, -131069, 589824, 2, -131068, 589824, 2, -131067, 589824, 2, -131066, 589824, 2, -196607, 589824, 2, -196606, 589824, 2, -196605, 589824, 2, -196604, 589824, 2, -196603, 589824, 2, -196608, 589824, 2, -196602, 589824, 2, -262143, 589824, 2, -262142, 589824, 2, -262141, 589824, 2, -262140, 589824, 2, -262139, 589824, 2)
 
@@ -568,7 +577,7 @@ region_rect = Rect2(32, 0, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Underground/Dynamic Tiles/DaggerDestroyableTile48"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 524288, 1, -65535, 589824, 2, -65534, 589824, 2, -65533, 589824, 2, -65532, 589824, 2, -65531, 589824, 2, -65530, 589824, 2)
 
@@ -580,7 +589,7 @@ region_rect = Rect2(32, 0, 32, 32)
 
 [node name="TileMap" type="TileMap" parent="Underground/Dynamic Tiles/DaggerDestroyableTile49"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 524288, 1, -65535, 589824, 2, -65534, 589824, 2, -65533, 589824, 2, -65532, 589824, 2, -65531, 589824, 2, -65530, 589824, 2, 0, 327680, 1, 1, 589824, 2, 2, 589824, 2)
 
@@ -620,7 +629,7 @@ texture = ExtResource("9_hayv6")
 
 [node name="TileMap" type="TileMap" parent="Underground/Dynamic Tiles/HammerDestroyableTile"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 655360, 0, 65534, 393216, 1, 131070, 589824, 2, 196606, 589824, 2, 131071, 589824, 2, 196607, 589824, 2)
 
@@ -630,7 +639,7 @@ texture = ExtResource("9_hayv6")
 
 [node name="TileMap" type="TileMap" parent="Underground/Dynamic Tiles/HammerDestroyableTile2"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 655360, 0, 131071, 589824, 2, 196607, 589824, 2, 262143, 589824, 2, 327679, 589824, 2)
 
@@ -640,9 +649,99 @@ texture = ExtResource("9_hayv6")
 
 [node name="TileMap" type="TileMap" parent="Underground/Dynamic Tiles/HammerDestroyableTile3"]
 position = Vector2(16, 16)
-tile_set = ExtResource("1_q7pem")
+tile_set = ExtResource("1_igp66")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 655360, 0, 0, 327680, 1, -65536, 524288, 0, 1, 589824, 2, -65535, 655360, 0, 2, 589824, 2, 65538, 589824, 2, 131071, 589824, 2, 196607, 589824, 2, 262143, 589824, 2, 327679, 589824, 2, 65536, 589824, 2, 131072, 589824, 2, 196608, 589824, 2, 262144, 589824, 2, 65537, 589824, 2, 131073, 589824, 2, 196609, 589824, 2, 262145, 589824, 2, 327680, 589824, 2, 393216, 589824, 2, 458752, 589824, 2, 524288, 589824, 2, 589824, 589824, 2, 655360, 589824, 2, 720896, 589824, 2, 786432, 589824, 2, 327681, 589824, 2, 393217, 589824, 2, 458753, 589824, 2, 524289, 589824, 2, 589825, 589824, 2, 655361, 589824, 2, 720897, 589824, 2, 786433, 589824, 2, 131074, 589824, 2, 196610, 589824, 2, 262146, 589824, 2, 327682, 589824, 2, 393218, 589824, 2, 458754, 589824, 2, 524290, 589824, 2, 589826, 589824, 2, 655362, 589824, 2, 720898, 589824, 2, 786434, 589824, 2, 131075, 589824, 2, 196611, 589824, 2, 262147, 589824, 2, 327683, 589824, 2, 393219, 589824, 2, 458755, 589824, 2, 524291, 589824, 2, 589827, 589824, 2, 655363, 589824, 2, 720899, 589824, 2, 786435, 589824, 2, 131076, 589824, 2, 196612, 589824, 2, 262148, 589824, 2, 327684, 589824, 2, 393220, 589824, 2, 458756, 589824, 2, 524292, 589824, 2, 589828, 589824, 2, 655364, 589824, 2, 720900, 589824, 2, 786436, 589824, 2, 393215, 589824, 2, 458751, 589824, 2, 65539, 589824, 2, 327685, 589824, 2, 393221, 589824, 2, 458757, 589824, 2, 524293, 589824, 2, 589829, 589824, 2, 655365, 589824, 2, 720901, 589824, 2, 786437, 589824, 2, 327686, 589824, 2, 393222, 589824, 2, 458758, 589824, 2, 524294, 589824, 2, 589830, 589824, 2, 655366, 589824, 2, 720902, 589824, 2, 786438, 589824, 2, 327687, 589824, 2, 393223, 589824, 2, 458759, 589824, 2, 524295, 589824, 2, 589831, 589824, 2, 655367, 589824, 2, 720903, 589824, 2, 786439, 589824, 2, 262149, 589824, 2)
+
+[node name="DaggerDestroyableTile32" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8400, 848)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile33" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8400, 816)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile34" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8400, 784)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile52" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8368, 816)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile53" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8368, 784)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile54" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8784, 720)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile55" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8784, 752)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile56" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8784, 784)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile57" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8752, 944)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile58" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8784, 816)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile59" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8816, 688)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile60" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(8816, 720)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile61" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(7536, 592)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile62" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(7536, 560)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="DaggerDestroyableTile63" parent="Underground/Dynamic Tiles" instance=ExtResource("6_mlwqt")]
+position = Vector2(7504, 592)
+texture = ExtResource("7_3tl5n")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
 
 [node name="MinecartShortcut" type="Node" parent="Underground"]
 
@@ -665,3 +764,5 @@ process_mode = 4
 visible = false
 position = Vector2(3114, 1392)
 rotation = 1.5708
+
+[node name="LabDoor" type="Node" parent="Underground"]

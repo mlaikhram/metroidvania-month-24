@@ -3,6 +3,7 @@ extends Area2D
 
 
 var current_interactible = null
+var is_interacting = false
 
 
 func should_face_interaction():
@@ -14,20 +15,29 @@ func get_interaction_position():
 
 
 func force():
-	if owner.has_method("_start_cutscene"):
-		owner._start_cutscene()
-	else:
-		print("owner does not have _start_cutscene")
+	if !is_interacting:
+		if owner.has_method("_start_cutscene"):
+			owner._start_cutscene()
+		else:
+			print("owner does not have _start_cutscene")
 
 
 func prepare():
-	current_interactible.hide_popup()
-	return current_interactible.get_target_x_position()
+	if !is_interacting:
+		current_interactible.hide_popup()
+		return current_interactible.get_target_x_position()
 
 
 func interact(player: Player):
-	current_interactible.interact(player)
+	print("interacted")
+	if !is_interacting:
+		current_interactible.interact(player)
+		is_interacting = true
+		
+		
+func end_interaction():
 	current_interactible = null
+	is_interacting = false
 
 
 func has_interaction():
@@ -35,11 +45,14 @@ func has_interaction():
 
 
 func set_current_interactible(interactible: InteractionArea2D):
-	print("setting interactible")
-	current_interactible = interactible
+	if !is_interacting:
+		print("setting interactible")
+		current_interactible = interactible
+		return true
+	return false
 
 
 func exit_interactible(interactible: InteractionArea2D):
-	if current_interactible == interactible:
+	if !is_interacting && current_interactible == interactible:
 		print("unsetting interactible")
 		current_interactible = null

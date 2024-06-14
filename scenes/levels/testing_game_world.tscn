@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cepkmie4ba2tp"]
+[gd_scene load_steps=5 format=3 uid="uid://b1y1edu0g4p7x"]
 
-[ext_resource type="Script" path="res://scripts/TransitionManager.gd" id="1_3deka"]
-[ext_resource type="PackedScene" uid="uid://btqd3v64qlry0" path="res://scenes/levels/level.tscn" id="1_dq1e1"]
-[ext_resource type="Texture2D" uid="uid://b1dwyxshtttjx" path="res://art/ui/PE_White_Dot.png" id="3_7gm4j"]
-[ext_resource type="Script" path="res://scripts/utils/RequestableCamera2D.gd" id="3_xllen"]
+[ext_resource type="Script" path="res://scripts/TransitionManager.gd" id="1_1h1lh"]
+[ext_resource type="Script" path="res://scripts/utils/RequestableCamera2D.gd" id="2_167jc"]
+[ext_resource type="PackedScene" uid="uid://b1nmbt62ra7h2" path="res://scenes/levels/flashbacks/dagger_flashback.tscn" id="3_8mmiv"]
+[ext_resource type="Texture2D" uid="uid://b1dwyxshtttjx" path="res://art/ui/PE_White_Dot.png" id="4_k4u6e"]
 
-[node name="GameWorld" type="Node2D" node_paths=PackedStringArray("transition_rect")]
-script = ExtResource("1_3deka")
+[node name="TestingGameWorld" type="Node2D" node_paths=PackedStringArray("transition_rect")]
+script = ExtResource("1_1h1lh")
 transition_rect = NodePath("CanvasLayer/TransitionRect")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -14,9 +14,9 @@ offset = Vector2(0, -120)
 zoom = Vector2(1.7, 1.7)
 process_callback = 0
 position_smoothing_enabled = true
-script = ExtResource("3_xllen")
+script = ExtResource("2_167jc")
 
-[node name="Level" parent="." instance=ExtResource("1_dq1e1")]
+[node name="Level" parent="." instance=ExtResource("3_8mmiv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -36,5 +36,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_7gm4j")
+texture = ExtResource("4_k4u6e")
 expand_mode = 1
