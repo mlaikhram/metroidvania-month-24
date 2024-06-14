@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdtn4pq6oqlh6"]
+[gd_scene load_steps=16 format=3 uid="uid://bdtn4pq6oqlh6"]
 
 [ext_resource type="Script" path="res://scripts/Checkpoint.gd" id="1_8vv55"]
+[ext_resource type="PackedScene" uid="uid://dg1wt4qf4wh8w" path="res://scenes/levels/test_level.tscn" id="2_fbeu3"]
 [ext_resource type="Texture2D" uid="uid://cpndylmm7ju7w" path="res://art/items/A_ItemSparkle.png" id="2_t7v3s"]
 [ext_resource type="Texture2D" uid="uid://dqxore1hpupwm" path="res://art/items/sprites/S_DaggerStuck.png" id="2_uw4io"]
 [ext_resource type="Script" path="res://scripts/utils/InteractionArea2D.gd" id="4_lvbod"]
@@ -68,6 +69,7 @@ radius = 48.0
 
 [node name="DaggerCheckpoint" type="Node2D"]
 script = ExtResource("1_8vv55")
+flashback_scene = ExtResource("2_fbeu3")
 force_flashback = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

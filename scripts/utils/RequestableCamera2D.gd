@@ -10,11 +10,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if is_instance_valid(target_object):
 		global_position = target_object.global_position
 
 
 func _follow_target(target: Node2D):
-	print("received camera request: " + str(target))
+	print("camera request from " + target.name)
 	target_object = target

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cepkmie4ba2tp"]
+
+[ext_resource type="PackedScene" uid="uid://btqd3v64qlry0" path="res://scenes/levels/level.tscn" id="1_dq1e1"]
+[ext_resource type="Script" path="res://scripts/utils/RequestableCamera2D.gd" id="3_xllen"]
+
+[node name="GameWorld" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -120)
+zoom = Vector2(1.7, 1.7)
+process_callback = 0
+position_smoothing_enabled = true
+script = ExtResource("3_xllen")
+
+[node name="Level" parent="." instance=ExtResource("1_dq1e1")]

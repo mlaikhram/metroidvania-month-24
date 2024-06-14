@@ -8,7 +8,7 @@ extends Node2D
 var is_active = false
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_active && Input.is_action_just_pressed("player_interact"):
 		print("returning camera")
 		SignalBus.emit_signal("_cutscene_ended")

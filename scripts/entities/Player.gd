@@ -24,7 +24,6 @@ enum movement_type {
 @export var wind_gust: PackedScene 
 @export var ice_statue: PackedScene
 
-@onready var _camera = $Camera2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _interactor = $Interactor2D
 @onready var _spirit = get_node_or_null("Spirit")
@@ -195,7 +194,7 @@ func _start_dagger():
 	_animated_sprite.play("dagger")
 	if is_instance_valid(_spirit):
 		_spirit.play_dagger()
-	_dagger_hit.set_process_mode(Node.PROCESS_MODE_ALWAYS)
+	_dagger_hit.set_process_mode(Node.PROCESS_MODE_INHERIT)
 	_dagger_hit.show()
 	current_state = player_state.DAGGER
 	seconds_since_action_start = 0
