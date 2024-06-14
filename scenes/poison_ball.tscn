@@ -51,7 +51,7 @@ shape = SubResource("CircleShape2D_7ngyf")
 
 [node name="Hurtbox2D" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("3_r1547")
 can_take_damage = false
 can_be_pushed = true

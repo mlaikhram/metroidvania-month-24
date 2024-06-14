@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://btqd3v64qlry0"]
+[gd_scene load_steps=16 format=3 uid="uid://btqd3v64qlry0"]
 
 [ext_resource type="TileSet" uid="uid://d2s8svc27bb5r" path="res://tilesets/background.tres" id="1_igp66"]
 [ext_resource type="TileSet" uid="uid://v2h7m8kkt1rr" path="res://tilesets/level.tres" id="1_q7pem"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bdtn4pq6oqlh6" path="res://scenes/checkpoints/dagger_checkpoint.tscn" id="8_f27wn"]
 [ext_resource type="Texture2D" uid="uid://bnygwjii5qn0g" path="res://art/tilesets/TS_BreakableWall.png" id="9_hayv6"]
 [ext_resource type="PackedScene" uid="uid://byhaxu8b627ep" path="res://scenes/minecart_shortcut.tscn" id="10_44oj0"]
+[ext_resource type="PackedScene" uid="uid://b2er7onqx60vn" path="res://scenes/traps/poison_geyser.tscn" id="10_75jxr"]
 [ext_resource type="Script" path="res://scripts/utils/DestructionListener.gd" id="11_kyp5s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q27ya"]
@@ -44,7 +45,7 @@ layer_0/tile_data = PackedInt32Array(65535, 655362, 0, 0, 655362, 0, 65534, 6553
 
 [node name="Player" parent="." instance=ExtResource("2_1wmil")]
 z_index = -2
-position = Vector2(6125, -88)
+position = Vector2(3731, 1334)
 
 [node name="Forest" type="Node" parent="."]
 
@@ -261,6 +262,80 @@ position = Vector2(9408, 1696)
 
 [node name="TestEnemy22" parent="Underground/Enemies" instance=ExtResource("3_cyfee")]
 position = Vector2(9568, 1472)
+
+[node name="Traps" type="Node" parent="Underground"]
+
+[node name="PoisonGeyser" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(4256, 1217)
+
+[node name="PoisonGeyser2" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(9632, 1443)
+on_duration = 2.0
+off_duration = 3.0
+
+[node name="PoisonGeyser3" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(7008, 829)
+rotation = 3.14159
+offset = 0.8
+
+[node name="PoisonGeyser4" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(3584, 1379)
+on_duration = 4.0
+offset = 1.4
+
+[node name="PoisonGeyser5" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(3682, 1405)
+rotation = 3.14159
+on_duration = 3.5
+offset = 3.2
+
+[node name="PoisonGeyser6" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(3519, 1827)
+off_duration = 0.0
+
+[node name="PoisonGeyser7" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(3236, 1827)
+off_duration = 0.5
+offset = 0.2
+
+[node name="PoisonGeyser8" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(2856, 1827)
+on_duration = 1.0
+off_duration = 0.2
+offset = 1.0
+
+[node name="PoisonGeyser10" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(3010, 1827)
+off_duration = 0.5
+offset = 0.7
+
+[node name="PoisonGeyser9" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(2949, 1692)
+rotation = 3.14159
+on_duration = 1.6
+off_duration = 0.4
+offset = 0.3
+
+[node name="PoisonGeyser11" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(2578, 1692)
+rotation = 3.14159
+
+[node name="PoisonGeyser12" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(2016, 1794)
+offset = 0.6
+
+[node name="PoisonGeyser13" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(1699, 1792)
+rotation = -1.5708
+offset = 5.1
+
+[node name="PoisonGeyser14" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(1600, 1572)
+offset = 1.2
+
+[node name="PoisonGeyser15" parent="Underground/Traps" instance=ExtResource("10_75jxr")]
+position = Vector2(1979, 1275)
+rotation = 3.14159
 
 [node name="Dynamic Tiles" type="Node2D" parent="Underground"]
 

@@ -38,7 +38,6 @@ const COYOTE_TIME = 0.08
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var is_facing_right = true
 var current_state = player_state.IDLE
 var seconds_since_action_start = 0
 var seconds_since_started_falling = 0
@@ -90,10 +89,9 @@ func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = mo
 	var direction = Input.get_axis("player_left", "player_right") if override_direction == 0 else float(override_direction)
 	if direction && (movement == movement_type.ANY || (movement == movement_type.AERIAL && not is_on_floor())):
 		velocity.x = (1 if direction > 0 else -1) * SPEED
-			
-		if flip_on_back && ((is_facing_right && direction < 0) || (!is_facing_right && direction > 0)):
+		
+		if flip_on_back && ((is_facing_right() && direction < 0) || (!is_facing_right() && direction > 0)):
 			scale.x = -1
-			is_facing_right = !is_facing_right
 
 	elif movement != movement_type.UNCONTROLLED:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -182,13 +180,12 @@ func _cutscene_physics_process(delta):
 			
 		if _interactor.has_interaction() && \
 			((_interactor.should_face_interaction() && \
-				((global_position.x > _interactor.get_interaction_position().x && is_facing_right) || \
-				(global_position.x < _interactor.get_interaction_position().x && !is_facing_right))) || \
+				((global_position.x > _interactor.get_interaction_position().x && is_facing_right()) || \
+				(global_position.x < _interactor.get_interaction_position().x && !is_facing_right()))) || \
 			(!_interactor.should_face_interaction() && \
-				((global_position.x < _interactor.get_interaction_position().x && is_facing_right) || \
-				(global_position.x > _interactor.get_interaction_position().x && !is_facing_right)))):
+				((global_position.x < _interactor.get_interaction_position().x && is_facing_right()) || \
+				(global_position.x > _interactor.get_interaction_position().x && !is_facing_right())))):
 			scale.x = -1
-			is_facing_right = !is_facing_right
 			
 		elif _interactor.has_interaction():
 			_interactor.interact(self)
@@ -227,7 +224,7 @@ func _start_wind_spell():
 
 
 func _wind_spell_physics_process(delta):
-	_base_movement(delta, true, false)
+	var direction = _base_movement(delta, true, false)
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
@@ -238,10 +235,10 @@ func _wind_spell_physics_process(delta):
 		current_wind_gust = wind_gust.instantiate()
 		owner.add_child(current_wind_gust)
 		current_wind_gust.position = global_position
-		current_wind_gust.position.x += 16 if is_facing_right else -16
+		current_wind_gust.position.x += 16 if is_facing_right() else -16
 		current_wind_gust.position.y -= 32
-		current_wind_gust.get_node("FadeOutAnimatedSprite2D").flip_h = not is_facing_right
-		current_wind_gust.linear_velocity = 50 * (Vector2.RIGHT if is_facing_right else Vector2.LEFT) + 10 * Vector2.UP
+		current_wind_gust.get_node("FadeOutAnimatedSprite2D").flip_h = not is_facing_right()
+		current_wind_gust.linear_velocity = (100 if !direction else 300) * (Vector2.RIGHT if is_facing_right() else Vector2.LEFT)
 		seconds_since_action_start = -100
 
 
@@ -250,7 +247,7 @@ func _start_ice_spell():
 		
 	# determine if player needs to move (is against an obstruction)
 	var space_state = get_world_2d().direct_space_state
-	var final_x = global_position.x + (48 if is_facing_right else -48)
+	var final_x = global_position.x + (48 if is_facing_right() else -48)
 	
 	var bottom_raycast = PhysicsRayQueryParameters2D.create(Vector2(global_position.x, global_position.y - 16), Vector2(final_x, global_position.y - 16))
 	bottom_raycast.exclude = [self]
@@ -268,7 +265,7 @@ func _start_ice_spell():
 		
 	var closest_obstruction_x_distance = minf(abs((final_x if not bottom_result else bottom_result.position.x) - global_position.x), abs((final_x if not top_result else top_result.position.x) - global_position.x))
 	var move_to_x_distance = closest_obstruction_x_distance - 48
-	move_to_position_x = global_position.x + (move_to_x_distance if is_facing_right else -move_to_x_distance)
+	move_to_position_x = global_position.x + (move_to_x_distance if is_facing_right() else -move_to_x_distance)
 	
 	current_state = player_state.ICE_SPELL
 	seconds_since_action_start = 0
@@ -278,7 +275,7 @@ func _ice_spell_physics_process(delta):
 	_base_movement(delta, true, false, movement_type.NONE)
 	
 	# slide toward proper position to make room for ice statue
-	if (is_facing_right && global_position.x > move_to_position_x) || (not is_facing_right && global_position.x < move_to_position_x):
+	if (is_facing_right() && global_position.x > move_to_position_x) || (not is_facing_right() && global_position.x < move_to_position_x):
 		velocity += global_position.direction_to(Vector2(move_to_position_x, global_position.y)) * 256
 	else:
 		global_position = Vector2(move_to_position_x, global_position.y)
@@ -288,8 +285,8 @@ func _ice_spell_physics_process(delta):
 		current_ice_statue = ice_statue.instantiate()
 		owner.add_child(current_ice_statue)
 		current_ice_statue.position = global_position
-		current_ice_statue.position.x += 32 if is_facing_right else -32
-		current_ice_statue.get_node("AnimatedSprite2D").flip_h = not is_facing_right
+		current_ice_statue.position.x += 32 if is_facing_right() else -32
+		current_ice_statue.get_node("AnimatedSprite2D").flip_h = not is_facing_right()
 		seconds_since_action_start = -100
 
 
@@ -305,9 +302,11 @@ func take_damage(hitbox):
 		_spirit.stop()
 	var direction = -1 if hitbox.global_position.x >= global_position.x else 1
 	velocity = Vector2(direction * 250, -200)
-	if ((is_facing_right && direction > 0) || (!is_facing_right && direction < 0)):
+	if ((is_facing_right() && direction > 0) || (!is_facing_right() && direction < 0)):
 		scale.x = -1
-		is_facing_right = !is_facing_right
 	
 	_start_damaged()
 	
+func is_facing_right():
+	# godot is stupid
+	return scale.y == 1

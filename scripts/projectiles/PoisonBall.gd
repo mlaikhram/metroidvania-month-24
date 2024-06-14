@@ -3,6 +3,13 @@ extends RigidBody2D
 
 
 @onready var fadeout_animated_sprite = $FadeOutAnimatedSprite2D
+@onready var hitbox = $Hitbox2D
+@onready var hurtbox = $Hurtbox2D
+
+
+func _ready():
+	await get_tree().create_timer(0.1).timeout
+	hurtbox.set_collision_mask_value(1, true)
 
 
 func on_hit(_body):
@@ -11,7 +18,7 @@ func on_hit(_body):
 
 
 func push_away_from(source_position: Vector2, push_speed: float):
-	linear_velocity = push_speed * source_position.direction_to(position)
+	hitbox.set_process_mode(Node.PROCESS_MODE_DISABLED)
+	hurtbox.set_collision_mask_value(1, true)
+	linear_velocity = push_speed * source_position.direction_to(global_position)
 	fadeout_animated_sprite.set_time_left(min(fadeout_animated_sprite.time_left, 0.5))
-	if owner.has_method("_on_pushed_away"):
-		owner._on_pushed_away(source_position, push_speed)

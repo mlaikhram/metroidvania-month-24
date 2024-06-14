@@ -32,7 +32,7 @@ func _on_push_circle_entered(pushCircle):
 		return
 		
 	if owner.has_method("push_away_from"):
-		owner.push_away_from(pushCircle.position, pushCircle.push_speed)
+		owner.push_away_from(pushCircle.global_position, pushCircle.push_speed)
 	else:
 		print("owner does not have push_away_from")
 
