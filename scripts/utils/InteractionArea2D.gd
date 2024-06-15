@@ -2,12 +2,12 @@ class_name InteractionArea2D
 extends Area2D
 
 
-@export var action_name = "interact"
+@export var feature: Constants.feature_flag
 @export var target_x_distance = 0
 @export var face_center = true
 @export var force_interaction = false
 
-@onready var interaction_popup: Label = get_node_or_null("Popup") # $Popup
+@onready var interaction_popup: Label = get_node_or_null("Popup")
 
 
 func _ready():
@@ -20,6 +20,9 @@ func interact(player: Player):
 
 
 func end_interaction():
+	if feature != Constants.feature_flag.NONE && !PlayerData.has_feature(feature):
+		SignalBus.emit_signal("_unlocked_feature", feature)
+		
 	get_parent()._on_interaction_over()
 	if is_instance_valid(interaction_popup):
 		interaction_popup.show()

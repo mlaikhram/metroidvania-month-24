@@ -47,6 +47,7 @@ var move_to_position_x = 0
 
 
 func _ready():
+	SignalBus._unlocked_feature.connect(_unlocked_item)
 	SignalBus._cutscene_ended.connect(_on_cutscene_ended)
 	_animated_sprite.animation_finished.connect(self._on_animation_finished)
 	
@@ -307,6 +308,20 @@ func take_damage(hitbox):
 	
 	_start_damaged()
 	
+	
+func _unlocked_item(has_item: Constants.feature_flag):
+	match has_item:
+		Constants.feature_flag.HAS_DAGGER:
+			has_dagger = true
+			PlayerData.save_game(Constants.checkpoint.DAGGER)
+		Constants.feature_flag.HAS_WIND_SPELL:
+			has_wind_spell = true
+			PlayerData.save_game(Constants.checkpoint.WIND_SPELL)
+		Constants.feature_flag.HAS_ICE_SPELL:
+			has_ice_spell = true
+			PlayerData.save_game(Constants.checkpoint.ICE_SPELL)
+
+
 func is_facing_right():
 	# godot is stupid
 	return scale.y == 1

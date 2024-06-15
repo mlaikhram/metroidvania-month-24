@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdtn4pq6oqlh6"]
+[gd_scene load_steps=17 format=3 uid="uid://bdtn4pq6oqlh6"]
 
 [ext_resource type="Script" path="res://scripts/Checkpoint.gd" id="1_8vv55"]
 [ext_resource type="PackedScene" uid="uid://b1nmbt62ra7h2" path="res://scenes/levels/flashbacks/dagger_flashback.tscn" id="2_riv28"]
 [ext_resource type="Texture2D" uid="uid://cpndylmm7ju7w" path="res://art/items/A_ItemSparkle.png" id="2_t7v3s"]
 [ext_resource type="Texture2D" uid="uid://dqxore1hpupwm" path="res://art/items/sprites/S_DaggerStuck.png" id="2_uw4io"]
+[ext_resource type="Script" path="res://scripts/OverworldAbilityItem.gd" id="4_84wke"]
 [ext_resource type="Script" path="res://scripts/utils/InteractionArea2D.gd" id="4_lvbod"]
 [ext_resource type="FontFile" uid="uid://bvc1cyirxrdtk" path="res://fonts/heavy_data.ttf" id="5_w60qh"]
 
@@ -69,13 +70,15 @@ radius = 48.0
 
 [node name="DaggerCheckpoint" type="Node2D"]
 script = ExtResource("1_8vv55")
+checkpoint = 1
 flashback_scene = ExtResource("2_riv28")
-force_flashback = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 scale = Vector2(-1, 1)
 texture = ExtResource("2_uw4io")
+script = ExtResource("4_84wke")
+item_feature = 1
 
 [node name="Sparkles" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
@@ -87,6 +90,7 @@ frame_progress = 0.539669
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_lvbod")
+feature = 1
 target_x_distance = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D"]

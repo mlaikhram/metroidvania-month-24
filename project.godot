@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://scripts/utils/SignalBus.gd"
+Constants="*res://scripts/utils/Constants.gd"
+PlayerData="*res://scripts/utils/PlayerData.gd"
 
 [display]
 

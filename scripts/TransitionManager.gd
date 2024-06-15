@@ -43,8 +43,8 @@ func _load_main_level(flashback: Node2D):
 	main_level.show()
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(flashback, "modulate", Color.TRANSPARENT, 6).set_trans(Tween.TRANS_LINEAR).set_delay(2)
-	tween.parallel().tween_property(main_level, "modulate", Color.WHITE, 6).set_trans(Tween.TRANS_LINEAR).set_delay(2)
+	tween.tween_property(flashback, "modulate", Color.TRANSPARENT, 3).set_trans(Tween.TRANS_LINEAR).set_delay(2)
+	tween.parallel().tween_property(main_level, "modulate", Color.WHITE, 3).set_trans(Tween.TRANS_LINEAR).set_delay(2)
 	tween.tween_callback(_cleanup_flashback.bind(flashback))
 
 	

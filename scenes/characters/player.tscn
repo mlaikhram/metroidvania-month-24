@@ -288,7 +288,6 @@ size = Vector2(32, 64)
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_lwr3b")
-has_dagger = true
 has_wind_spell = true
 has_ice_spell = true
 wind_gust = ExtResource("2_loyfw")
