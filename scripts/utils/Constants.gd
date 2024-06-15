@@ -7,7 +7,9 @@ enum feature_flag {
 	HAS_ICE_SPELL,
 	HAS_WIND_SPELL,
 	
-	BROKE_UNDERGROUND_SEAL
+	BROKE_UNDERGROUND_SEAL,
+	
+	CUT_LAB_PIPE_WIRES
 }
 
 enum checkpoint {

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmp6rl5jgaaaw"]
+
+[ext_resource type="Script" path="res://scripts/tiles/DestructibleTile.gd" id="1_53glg"]
+[ext_resource type="Texture2D" uid="uid://cggr0vv63wl6p" path="res://art/tilesets/TS_Cuttable.png" id="1_bqhkw"]
+[ext_resource type="Script" path="res://scripts/utils/Hurtbox2D.gd" id="2_2fnll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elcn8"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecjre"]
+size = Vector2(32, 32)
+
+[node name="Wire" type="Sprite2D"]
+texture = ExtResource("1_bqhkw")
+region_enabled = true
+region_rect = Rect2(128, 0, 32, 32)
+script = ExtResource("1_53glg")
+hitbox_tags = Array[String](["dagger"])
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_elcn8")
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_2fnll")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+shape = SubResource("RectangleShape2D_ecjre")

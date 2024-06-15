@@ -6,7 +6,6 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for destructible in destructibles:
-		# destructible.destroy.connect(_on_destructible_destroyed(destructible))
 		destructible.destroyed.connect(func(): _on_destructible_destroyed(destructible))
 
 
