@@ -11,13 +11,14 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	open()
+	SignalBus._unlocked_feature.connect(_unlocked_door)
 
 
-func open():
-	var tween = get_tree().create_tween()
-	tween.tween_callback(_dust.play.bind("default"))
-	tween.tween_property(_door, "global_position", Vector2(global_position.x, global_position.y + 320), 3).set_trans(Tween.TRANS_LINEAR).set_delay(1)
-	tween.parallel().tween_callback(_door_animated_sprite.play.bind("open")).set_delay(1)
-	tween.tween_property(_dust, "modulate", Color.TRANSPARENT, 1)
-	tween.tween_callback(_dust.play.bind("none"))
+func _unlocked_door(new_feature: Constants.feature_flag):
+	if feature == new_feature:
+		var tween = get_tree().create_tween()
+		tween.tween_callback(_dust.play.bind("default"))
+		tween.tween_property(_door, "global_position", Vector2(global_position.x, global_position.y + 320), 3).set_trans(Tween.TRANS_LINEAR).set_delay(1)
+		tween.parallel().tween_callback(_door_animated_sprite.play.bind("open")).set_delay(1)
+		tween.tween_property(_dust, "modulate", Color.TRANSPARENT, 0.5)
+		tween.tween_callback(_dust.play.bind("none"))

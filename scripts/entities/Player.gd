@@ -45,6 +45,12 @@ var current_wind_gust: Node2D
 var current_ice_statue: Node2D
 var move_to_position_x = 0
 
+var max_health: int = 3
+var current_health: int = 3
+
+var max_mana: int = 50
+var current_mana: int = 0
+
 
 func _ready():
 	SignalBus._unlocked_feature.connect(_unlocked_item)
@@ -320,6 +326,16 @@ func _unlocked_item(has_item: Constants.feature_flag):
 		Constants.feature_flag.HAS_ICE_SPELL:
 			has_ice_spell = true
 			PlayerData.save_game(Constants.checkpoint.ICE_SPELL)
+
+
+func increase_mana(amount: int):
+	current_mana += amount
+	if current_mana >= 50 && current_health < max_health:
+		max_health += 1
+		current_mana -= max_health
+		
+	else:
+		current_mana = min(current_mana, max_mana)
 
 
 func is_facing_right():

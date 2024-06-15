@@ -10,6 +10,7 @@ var last_checkpoint: Constants.checkpoint = Constants.checkpoint.NONE
 var strength_shards: Dictionary = {}
 var health_shards: Dictionary = {}
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalBus._unlocked_feature.connect(_update_feature_flag)
