@@ -36,6 +36,7 @@ func interact(player: Player):
 		
 		
 func end_interaction():
+	current_interactible.end_interaction()
 	current_interactible = null
 	is_interacting = false
 

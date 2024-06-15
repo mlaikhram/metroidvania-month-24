@@ -11,7 +11,7 @@ transition_rect = NodePath("CanvasLayer/TransitionRect")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -120)
-zoom = Vector2(1.7, 1.7)
+zoom = Vector2(1.75, 1.75)
 process_callback = 0
 position_smoothing_enabled = true
 script = ExtResource("3_xllen")

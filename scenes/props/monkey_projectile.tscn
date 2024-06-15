@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmo1f745u1jqs"]
+
+[ext_resource type="Texture2D" uid="uid://3b3xsxtokqxr" path="res://art/enemies/S_MonkeyThrowObject.png" id="1_b4w1o"]
+
+[node name="MonkeyProjectile" type="Sprite2D"]
+texture = ExtResource("1_b4w1o")

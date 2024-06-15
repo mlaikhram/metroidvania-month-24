@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1y1edu0g4p7x"]
+[gd_scene load_steps=6 format=3 uid="uid://b1y1edu0g4p7x"]
 
 [ext_resource type="Script" path="res://scripts/TransitionManager.gd" id="1_1h1lh"]
 [ext_resource type="Script" path="res://scripts/utils/RequestableCamera2D.gd" id="2_167jc"]
 [ext_resource type="PackedScene" uid="uid://b1nmbt62ra7h2" path="res://scenes/levels/flashbacks/dagger_flashback.tscn" id="3_8mmiv"]
 [ext_resource type="Texture2D" uid="uid://b1dwyxshtttjx" path="res://art/ui/PE_White_Dot.png" id="4_k4u6e"]
+[ext_resource type="PackedScene" uid="uid://dmo1f745u1jqs" path="res://scenes/props/monkey_projectile.tscn" id="4_rblw2"]
 
 [node name="TestingGameWorld" type="Node2D" node_paths=PackedStringArray("transition_rect")]
 script = ExtResource("1_1h1lh")
@@ -17,6 +18,10 @@ position_smoothing_enabled = true
 script = ExtResource("2_167jc")
 
 [node name="Level" parent="." instance=ExtResource("3_8mmiv")]
+
+[node name="MonkeyProjectile" parent="Level" instance=ExtResource("4_rblw2")]
+visible = false
+position = Vector2(2685, -148)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -4,8 +4,8 @@ extends Node2D
 @export var flashback_scene: PackedScene = null
 @export var force_flashback = false
 
+@onready var sparkles: Node2D = $Sparkles
 
-var is_active = false
 
 
 #func _physics_process(_delta):
@@ -14,10 +14,13 @@ var is_active = false
 		#SignalBus.emit_signal("_cutscene_ended")
 		#is_active = false
 
+func _on_interaction_over():
+	sparkles.show()
+
 
 func _on_player_interacted(_player: Player):
 	print("interacted with the checkpoint")
-	is_active = true
+	sparkles.hide()
 	SignalBus.emit_signal("_request_camera", self)
 	if is_instance_valid(flashback_scene) && force_flashback:
 		await get_tree().create_timer(1).timeout

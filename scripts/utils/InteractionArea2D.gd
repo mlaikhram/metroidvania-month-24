@@ -7,7 +7,7 @@ extends Area2D
 @export var face_center = true
 @export var force_interaction = false
 
-@onready var interaction_popup: Label = $Popup
+@onready var interaction_popup: Label = get_node_or_null("Popup") # $Popup
 
 
 func _ready():
@@ -19,8 +19,14 @@ func interact(player: Player):
 	get_parent()._on_player_interacted(player)
 
 
+func end_interaction():
+	get_parent()._on_interaction_over()
+	if is_instance_valid(interaction_popup):
+		interaction_popup.show()
+
 func hide_popup():
-	interaction_popup.hide()
+	if is_instance_valid(interaction_popup):
+		interaction_popup.hide()
 	
 
 func _on_interaction_area_entered(interactor):
@@ -31,14 +37,15 @@ func _on_interaction_area_entered(interactor):
 	if interactor.set_current_interactible(self):
 		if force_interaction:
 			interactor.force()
-		else:
+		elif is_instance_valid(interaction_popup):
 			interaction_popup.show()
 
 func _on_interaction_area_exited(interactor):
 	if interactor == null || !interactor is Interactor2D:
 		return
 	
-	interaction_popup.hide()
+	if is_instance_valid(interaction_popup):
+		interaction_popup.hide()
 	interactor.exit_interactible(self)
 
 

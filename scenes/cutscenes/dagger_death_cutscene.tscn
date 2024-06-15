@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbqeob7suuqor"]
+
+[ext_resource type="Script" path="res://scripts/cutscenes/DaggerDeathCutscene.gd" id="1_ie8ni"]
+[ext_resource type="Script" path="res://scripts/utils/InteractionArea2D.gd" id="2_5s77o"]
+[ext_resource type="PackedScene" uid="uid://dmo1f745u1jqs" path="res://scenes/props/monkey_projectile.tscn" id="2_sv5xs"]
+[ext_resource type="PackedScene" uid="uid://ddlp3phcd8s6r" path="res://scenes/props/flying_dagger.tscn" id="3_08mxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr5xr"]
+size = Vector2(32, 200)
+
+[node name="DaggerDeathCutscene" type="Node2D"]
+script = ExtResource("1_ie8ni")
+monkey_projectile = ExtResource("2_sv5xs")
+flying_dagger = ExtResource("3_08mxd")
+
+[node name="InteractionArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_5s77o")
+target_x_distance = 16
+force_interaction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D"]
+position = Vector2(32, -148)
+shape = SubResource("RectangleShape2D_xr5xr")

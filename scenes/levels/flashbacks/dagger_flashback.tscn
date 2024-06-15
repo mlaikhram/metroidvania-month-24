@@ -1,14 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1nmbt62ra7h2"]
+[gd_scene load_steps=13 format=3 uid="uid://b1nmbt62ra7h2"]
 
 [ext_resource type="TileSet" uid="uid://d2s8svc27bb5r" path="res://tilesets/background.tres" id="2_8w572"]
 [ext_resource type="TileSet" uid="uid://v2h7m8kkt1rr" path="res://tilesets/level.tres" id="3_wr646"]
 [ext_resource type="PackedScene" uid="uid://dtfl4xtuhu6dw" path="res://scenes/characters/user_dagger.tscn" id="4_hw0os"]
 [ext_resource type="PackedScene" uid="uid://2ovn5am2t187" path="res://scenes/enemies/basic_enemy_patrol.tscn" id="5_vjhu4"]
 [ext_resource type="PackedScene" uid="uid://d05sckkmrnui4" path="res://scenes/dynamic_tiles/dagger_destroyable_tile.tscn" id="6_m786p"]
+[ext_resource type="Texture2D" uid="uid://dqxore1hpupwm" path="res://art/items/sprites/S_DaggerStuck.png" id="7_30jdl"]
 [ext_resource type="Texture2D" uid="uid://cggr0vv63wl6p" path="res://art/tilesets/TS_Cuttable.png" id="7_nin7k"]
-[ext_resource type="PackedScene" uid="uid://bdtn4pq6oqlh6" path="res://scenes/checkpoints/dagger_checkpoint.tscn" id="8_2ike0"]
+[ext_resource type="PackedScene" uid="uid://cbqeob7suuqor" path="res://scenes/cutscenes/dagger_death_cutscene.tscn" id="8_q2wps"]
 [ext_resource type="PackedScene" uid="uid://b2er7onqx60vn" path="res://scenes/traps/poison_geyser.tscn" id="9_145vg"]
 [ext_resource type="Texture2D" uid="uid://bnmjjy7ksc7yy" path="res://art/environment/A_BigDoor_Unlock.png" id="10_ue4he"]
+
+[sub_resource type="Curve2D" id="Curve2D_x6kun"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2667, -131, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6480, -16)
+}
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l27c"]
 size = Vector2(64, 352)
@@ -188,10 +195,21 @@ tile_set = ExtResource("2_8w572")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65537, 196609, 0)
 
-[node name="Dagger Checkpoint" type="Node" parent="Forest"]
+[node name="StuckDaggerProp" type="Sprite2D" parent="Forest"]
+visible = false
+position = Vector2(6480, -16)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_30jdl")
 
-[node name="Locked" parent="Forest/Dagger Checkpoint" instance=ExtResource("8_2ike0")]
-position = Vector2(6480, 0)
+[node name="DaggerDeathCutscene" parent="Forest" node_paths=PackedStringArray("stuck_dagger_prop") instance=ExtResource("8_q2wps")]
+position = Vector2(2636, -96)
+stuck_dagger_prop = NodePath("../StuckDaggerProp")
+
+[node name="DaggerPath" type="Node" parent="Forest"]
+
+[node name="Path2D" type="Path2D" parent="Forest/DaggerPath"]
+curve = SubResource("Curve2D_x6kun")
 
 [node name="Underground" type="Node" parent="."]
 
