@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4prrughhhlhv"
-path="res://.godot/imported/S_Save.png-1ee561c995daa228a4a35c0b3c93f558.ctex"
+uid="uid://da1qytfgcqlmb"
+path="res://.godot/imported/A_WindMage_Spirit.png-ee959ce2711c4d093833173335ccb9df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/S_Save.png"
-dest_files=["res://.godot/imported/S_Save.png-1ee561c995daa228a4a35c0b3c93f558.ctex"]
+source_file="res://art/characters/user_wind/A_WindMage_Spirit.png"
+dest_files=["res://.godot/imported/A_WindMage_Spirit.png-ee959ce2711c4d093833173335ccb9df.ctex"]
 
 [params]
 

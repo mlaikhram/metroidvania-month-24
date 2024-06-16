@@ -10,10 +10,12 @@ var last_checkpoint: Constants.checkpoint = Constants.checkpoint.NONE
 var strength_shards: Dictionary = {}
 var health_shards: Dictionary = {}
 
+var current_biome: Constants.Biome = Constants.Biome.JUNGLE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalBus._unlocked_feature.connect(_update_feature_flag)
+	SignalBus._switched_biome.connect(_switch_biome)
 
 
 func has_feature(flag: Constants.feature_flag):
@@ -34,3 +36,7 @@ func save_game(checkpoint: Constants.checkpoint):
 
 func _write_to_file():
 	pass
+
+
+func _switch_biome(next_biome: Constants.Biome):
+	current_biome = next_biome

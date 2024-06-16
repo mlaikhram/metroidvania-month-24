@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqp3tjxnss5h"]
+
+[ext_resource type="AudioStream" uid="uid://b2qxnfcp3v4yk" path="res://sound/music/WAV/Cave.wav" id="1_0dmqm"]
+[ext_resource type="Script" path="res://scripts/utils/MusicManager.gd" id="1_8e52j"]
+[ext_resource type="AudioStream" uid="uid://xwtwvjjsecxg" path="res://sound/music/WAV/Jungle.wav" id="2_kpm6v"]
+[ext_resource type="AudioStream" uid="uid://d3i5lgjnpv1ip" path="res://sound/music/WAV/Lab.wav" id="4_1dcbm"]
+[ext_resource type="AudioStream" uid="uid://ctmhdotnjlbsy" path="res://sound/music/WAV/Water.wav" id="5_py3kr"]
+
+[node name="MusicManager" type="Node2D"]
+script = ExtResource("1_8e52j")
+music_list = Array[AudioStream]([ExtResource("2_kpm6v"), ExtResource("1_0dmqm"), ExtResource("4_1dcbm"), ExtResource("5_py3kr")])
+
+[node name="MusicPlayer1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kpm6v")
+volume_db = -20.0
+autoplay = true
+
+[node name="MusicPlayer2" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0

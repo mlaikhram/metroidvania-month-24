@@ -1,6 +1,13 @@
 extends Node
 
 
+enum Biome {
+	JUNGLE,
+	UNDERGROUND,
+	LAB,
+	WATER
+}
+
 enum feature_flag {
 	NONE,
 	HAS_DAGGER,

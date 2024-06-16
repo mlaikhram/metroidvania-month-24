@@ -63,6 +63,10 @@ func _ready():
 	SignalBus.emit_signal("_request_camera", self)
 
 func _physics_process(delta):
+	
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()
+	
 	match current_state:
 		player_state.IDLE:
 			_idle_physics_process(delta)

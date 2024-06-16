@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cepkmie4ba2tp"]
+[gd_scene load_steps=6 format=3 uid="uid://cepkmie4ba2tp"]
 
 [ext_resource type="Script" path="res://scripts/TransitionManager.gd" id="1_3deka"]
 [ext_resource type="PackedScene" uid="uid://btqd3v64qlry0" path="res://scenes/levels/level.tscn" id="1_dq1e1"]
+[ext_resource type="PackedScene" uid="uid://cqp3tjxnss5h" path="res://scenes/music_manager.tscn" id="2_kf453"]
 [ext_resource type="Texture2D" uid="uid://b1dwyxshtttjx" path="res://art/ui/PE_White_Dot.png" id="3_7gm4j"]
 [ext_resource type="Script" path="res://scripts/utils/RequestableCamera2D.gd" id="3_xllen"]
 
 [node name="GameWorld" type="Node2D" node_paths=PackedStringArray("transition_rect")]
 script = ExtResource("1_3deka")
 transition_rect = NodePath("CanvasLayer/TransitionRect")
+
+[node name="MusicManager" parent="." instance=ExtResource("2_kf453")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -120)
@@ -19,6 +22,7 @@ script = ExtResource("3_xllen")
 [node name="Level" parent="." instance=ExtResource("1_dq1e1")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
 offset_right = 589.0
