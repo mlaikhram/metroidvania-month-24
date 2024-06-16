@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://cu7bus6ts6i1g"]
+
+[ext_resource type="Script" path="res://scripts/Checkpoint.gd" id="1_75mo7"]
+[ext_resource type="Texture2D" uid="uid://jgmh451dc0mb" path="res://art/items/sprites/S_WindBook.png" id="3_ek2p8"]
+[ext_resource type="Script" path="res://scripts/OverworldAbilityItem.gd" id="4_56rxb"]
+[ext_resource type="Texture2D" uid="uid://cpndylmm7ju7w" path="res://art/items/A_ItemSparkle.png" id="5_o0aye"]
+[ext_resource type="Script" path="res://scripts/utils/InteractionArea2D.gd" id="6_5yhrh"]
+[ext_resource type="FontFile" uid="uid://bvc1cyirxrdtk" path="res://fonts/heavy_data.ttf" id="7_xyec0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_276jg"]
+atlas = ExtResource("5_o0aye")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruapu"]
+atlas = ExtResource("5_o0aye")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7c40"]
+atlas = ExtResource("5_o0aye")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egc4f"]
+atlas = ExtResource("5_o0aye")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nufg7"]
+atlas = ExtResource("5_o0aye")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipl01"]
+atlas = ExtResource("5_o0aye")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5twta"]
+atlas = ExtResource("5_o0aye")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_elb6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_276jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruapu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7c40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egc4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nufg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipl01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5twta")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_06p7t"]
+radius = 48.0
+
+[node name="WindSpellCheckpoint" type="Node2D"]
+script = ExtResource("1_75mo7")
+checkpoint = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("3_ek2p8")
+script = ExtResource("4_56rxb")
+item_feature = 3
+
+[node name="Sparkles" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_elb6f")
+autoplay = "default"
+frame_progress = 0.539669
+
+[node name="InteractionArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_5yhrh")
+feature = 3
+target_x_distance = -32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D"]
+shape = SubResource("CircleShape2D_06p7t")
+
+[node name="Popup" type="Label" parent="InteractionArea2D"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -88.0
+offset_right = 48.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_xyec0")
+theme_override_font_sizes/font_size = 14
+text = "[Interact]"
+horizontal_alignment = 1
+vertical_alignment = 1

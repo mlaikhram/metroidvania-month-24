@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkwoyugagpmnp"]
+
+[ext_resource type="Script" path="res://scripts/traps/Spray.gd" id="1_r3gl5"]
+[ext_resource type="PackedScene" uid="uid://ca3a7cge6olc" path="res://scenes/poison_ball.tscn" id="2_hj7b7"]
+[ext_resource type="Texture2D" uid="uid://cn7nq5uo5caw1" path="res://art/environment/S_WaterGeyserHole.png" id="3_qfukt"]
+
+[node name="CaveGeyser" type="Node2D"]
+script = ExtResource("1_r3gl5")
+projectile = ExtResource("2_hj7b7")
+velocity = Vector2(0, -400)
+degrees_of_error = 12.0
+x_error = 8.0
+y_offset = 16.0
+fire_rate = 40.0
+on_duration = 3.0
+off_duration = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -32)
+texture = ExtResource("3_qfukt")

@@ -17,6 +17,7 @@ enum movement_type {
 	UNCONTROLLED
 }
 
+@export var can_jump = true
 @export var has_dagger = false
 @export var has_wind_spell = false
 @export var has_ice_spell = false
@@ -29,7 +30,7 @@ enum movement_type {
 @onready var _spirit = get_node_or_null("Spirit")
 @onready var _dagger_hit = $DaggerHit
 
-const SPEED = 300.0
+@export var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_FALL_SPEED = 800.0
 const COYOTE_TIME = 0.08
@@ -132,7 +133,7 @@ func _idle_physics_process(delta):
 		_start_cutscene()
 	
 	# Handle jump.
-	elif Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
+	elif can_jump && Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
 		velocity.y = JUMP_VELOCITY
 		_animated_sprite.play("jump")
 		
@@ -212,7 +213,7 @@ func _dagger_physics_process(delta):
 	_base_movement(delta, true, false, movement_type.AERIAL)
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
+	if can_jump && Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
 		velocity.y = JUMP_VELOCITY
 	
 	seconds_since_action_start += delta
@@ -234,7 +235,7 @@ func _wind_spell_physics_process(delta):
 	var direction = _base_movement(delta, true, false)
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
+	if can_jump && Input.is_action_just_pressed("player_jump") and seconds_since_started_falling <= COYOTE_TIME:
 		velocity.y = JUMP_VELOCITY
 	
 	seconds_since_action_start += delta
@@ -245,7 +246,7 @@ func _wind_spell_physics_process(delta):
 		current_wind_gust.position.x += 16 if is_facing_right() else -16
 		current_wind_gust.position.y -= 32
 		current_wind_gust.get_node("FadeOutAnimatedSprite2D").flip_h = not is_facing_right()
-		current_wind_gust.linear_velocity = (100 if !direction else 300) * (Vector2.RIGHT if is_facing_right() else Vector2.LEFT)
+		current_wind_gust.linear_velocity = (100 if !direction else SPEED) * (Vector2.RIGHT if is_facing_right() else Vector2.LEFT)
 		seconds_since_action_start = -100
 
 
