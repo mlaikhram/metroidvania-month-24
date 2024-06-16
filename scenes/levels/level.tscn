@@ -987,6 +987,41 @@ shape = SubResource("RectangleShape2D_rojt6")
 
 [node name="WaterCave" type="Node" parent="."]
 
+[node name="Enemies" type="Node" parent="WaterCave"]
+
+[node name="BasicEnemyPatrol" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(17312, -96)
+
+[node name="BasicEnemyPatrol2" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(18336, -160)
+
+[node name="BasicEnemyPatrol3" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(18848, -96)
+
+[node name="BasicEnemyPatrol4" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(19712, -384)
+
+[node name="BasicEnemyPatrol5" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(20608, -288)
+
+[node name="BasicEnemyPatrol6" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(21120, 416)
+
+[node name="BasicEnemyPatrol7" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(21984, 1152)
+
+[node name="BasicEnemyPatrol8" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(20992, 1152)
+
+[node name="BasicEnemyPatrol9" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(20288, 1344)
+
+[node name="BasicEnemyPatrol10" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(19392, 1312)
+
+[node name="BasicEnemyPatrol11" parent="WaterCave/Enemies" instance=ExtResource("3_cyfee")]
+position = Vector2(19392, 608)
+
 [node name="LabDoor" parent="WaterCave" instance=ExtResource("15_4fuiv")]
 position = Vector2(16576, 1056)
 scale = Vector2(-1, 1)
@@ -1005,10 +1040,69 @@ position = Vector2(21504, -387)
 rotation = 3.14159
 off_duration = 0.0
 
+[node name="PoisonGeyser2" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(20818, -217)
+off_duration = 0.0
+
 [node name="CaveGeyser" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
 position = Vector2(23584, 483)
 on_duration = 0.5
 off_duration = 3.0
+
+[node name="CaveGeyser2" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(22370, 1091)
+offset = 0.6
+
+[node name="CaveGeyser3" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(22528, 1060)
+on_duration = 4.0
+
+[node name="CaveGeyser4" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(21766, 704)
+rotation = -1.5708
+on_duration = 4.0
+off_duration = 2.5
+offset = 0.2
+
+[node name="CaveGeyser5" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(19643, 705)
+rotation = 1.5708
+
+[node name="CaveGeyser6" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(19104, 644)
+offset = 0.5
+
+[node name="CaveGeyser7" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(21447, 352)
+rotation = -1.5708
+on_duration = 4.0
+off_duration = 2.5
+
+[node name="CaveGeyser8" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(20192, -550)
+rotation = 3.14159
+off_duration = 0.0
+
+[node name="CaveGeyser9" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(18561, -124)
+on_duration = 5.0
+
+[node name="CaveGeyser10" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(18107, -224)
+rotation = 1.5708
+on_duration = 4.0
+off_duration = 1.0
+
+[node name="CaveGeyser11" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(17600, 4)
+on_duration = 1.0
+off_duration = 1.0
+
+[node name="CaveGeyser12" parent="WaterCave/Traps" instance=ExtResource("21_fb0e6")]
+position = Vector2(20583, 576)
+rotation = -1.5708
+off_duration = 3.0
+offset = 2.0
 
 [node name="WindSpellCheckpoint" parent="WaterCave" instance=ExtResource("22_f7uc2")]
 position = Vector2(24096, 480)
