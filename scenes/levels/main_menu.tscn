@@ -14,10 +14,10 @@ script = ExtResource("1_2kj6s")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 195.0
-offset_right = 1971.0
-offset_bottom = 1275.0
+offset_left = 55.0
+offset_top = 198.0
+offset_right = 1975.0
+offset_bottom = 1278.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
