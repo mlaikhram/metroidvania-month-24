@@ -19,11 +19,6 @@ func _on_player_interacted(player: Player):
 	tween.tween_property(monkey_projectile_instance, "global_position", Vector2(2685, -148), 0.3).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(_impact_with_player.bind(player))
 	tween.parallel().tween_property(monkey_projectile_instance, "global_position", Vector2(2550, -89), 0.3).set_trans(Tween.TRANS_LINEAR)
-	
-	#tween.tween_callback(_kill_player.bind(player))
-	
-	# TODO: delete player, dagger fly
-	
 	tween.tween_callback(_end_flashback).set_delay(1.6)
 
 

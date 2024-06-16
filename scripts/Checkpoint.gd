@@ -28,4 +28,6 @@ func _on_player_interacted(_player: Player):
 		await get_tree().create_timer(1).timeout
 		SignalBus.emit_signal("_request_load_flashback", flashback_scene)
 	else:
-		pass # TODO: dialogue box to save and replay flashback if applicable
+		await get_tree().create_timer(1).timeout
+		SignalBus.emit_signal("_request_load_flashback", flashback_scene)
+		# TODO: dialogue box to save and replay flashback if applicable

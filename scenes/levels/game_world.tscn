@@ -22,9 +22,9 @@ script = ExtResource("3_xllen")
 [node name="Level" parent="." instance=ExtResource("1_dq1e1")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+visible = false
 offset_right = 589.0
 offset_bottom = 185.0
 

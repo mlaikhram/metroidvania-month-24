@@ -111,7 +111,8 @@ func _base_movement(delta, do_gravity = true, flip_on_back = true, movement = mo
 
 
 func _on_cutscene_ended():
-	if current_state == player_state.CUTSCENE:
+	if is_inside_tree() && current_state == player_state.CUTSCENE:
+		print("taking the camera, " + name)
 		SignalBus.emit_signal("_request_camera", self)
 		current_state = player_state.IDLE
 		_interactor.end_interaction()
@@ -186,7 +187,7 @@ func _cutscene_physics_process(delta):
 		elif is_on_floor() && direction:
 			_animated_sprite.play("run")
 			
-	else:
+	elif !_interactor.is_interacting:
 		_animated_sprite.play("idle")
 		_base_movement(delta, true, true, movement_type.NONE)
 			
@@ -250,7 +251,7 @@ func _wind_spell_physics_process(delta):
 		current_wind_gust.position.x += 16 if is_facing_right() else -16
 		current_wind_gust.position.y -= 32
 		current_wind_gust.get_node("FadeOutAnimatedSprite2D").flip_h = not is_facing_right()
-		current_wind_gust.linear_velocity = (100 if !direction else SPEED) * (Vector2.RIGHT if is_facing_right() else Vector2.LEFT)
+		current_wind_gust.linear_velocity = (100.0 if !direction else SPEED) * (Vector2.RIGHT if is_facing_right() else Vector2.LEFT)
 		seconds_since_action_start = -100
 
 

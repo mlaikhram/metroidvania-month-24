@@ -28,18 +28,6 @@ region = Rect2(96, 0, 96, 96)
 atlas = ExtResource("4_fx68e")
 region = Rect2(192, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieeof"]
-atlas = ExtResource("5_k7dm7")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_svsar"]
-atlas = ExtResource("5_k7dm7")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lt6ad"]
-atlas = ExtResource("5_k7dm7")
-region = Rect2(192, 0, 96, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntcsf"]
 atlas = ExtResource("6_a0uje")
 region = Rect2(0, 0, 96, 96)
@@ -124,6 +112,18 @@ region = Rect2(288, 0, 96, 96)
 atlas = ExtResource("9_ph3rd")
 region = Rect2(384, 0, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieeof"]
+atlas = ExtResource("5_k7dm7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svsar"]
+atlas = ExtResource("5_k7dm7")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt6ad"]
+atlas = ExtResource("5_k7dm7")
+region = Rect2(192, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8xot"]
 atlas = ExtResource("10_p01uy")
 region = Rect2(0, 0, 96, 96)
@@ -150,20 +150,6 @@ animations = [{
 }],
 "loop": false,
 "name": &"damaged",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_ieeof")
-}, {
-"duration": 8.0,
-"texture": SubResource("AtlasTexture_svsar")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lt6ad")
-}],
-"loop": false,
-"name": &"death",
 "speed": 8.0
 }, {
 "frames": [{
@@ -250,6 +236,20 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ieeof")
+}, {
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_svsar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt6ad")
+}],
+"loop": false,
+"name": &"scripted_death",
+"speed": 8.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r8xot")
 }, {
@@ -282,6 +282,7 @@ size = Vector2(32, 64)
 [node name="UserWindSpell" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_16p3h")
+can_jump = false
 has_wind_spell = true
 wind_gust = ExtResource("2_s7iam")
 ice_statue = ExtResource("3_o2aly")
@@ -290,7 +291,7 @@ SPEED = 100.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_xv226")
-animation = &"wind_spell"
+animation = &"scripted_death"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -29,8 +29,8 @@ func prepare():
 
 
 func interact(player: Player):
-	print("interacted")
 	if !is_interacting:
+		print("interacted")
 		current_interactible.interact(player)
 		is_interacting = true
 		

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://v2h7m8kkt1rr"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://v2h7m8kkt1rr"]
 
 [ext_resource type="Texture2D" uid="uid://dal7ooy6y7ghb" path="res://art/tilesets/TS_Underground.png" id="1_eg1j7"]
 [ext_resource type="Texture2D" uid="uid://bmtfw80708q6n" path="res://art/tilesets/TS_Forest.png" id="2_5vdta"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://08a2umnhpp0y" path="res://art/tilesets/TS_Lab.png" id="4_h6qvd"]
 [ext_resource type="Texture2D" uid="uid://dfm2gi8t781hm" path="res://art/tilesets/TS_WaterCave.png" id="5_nnldw"]
 [ext_resource type="Texture2D" uid="uid://cyvuuck077w32" path="res://art/tilesets/T_Water_SemiReal.png" id="6_4cyl4"]
+[ext_resource type="Texture2D" uid="uid://bsb7lshevr5f2" path="res://art/tilesets/T_WaterDeep.png" id="7_iqco3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j26xu"]
 resource_name = "Underground"
@@ -3399,6 +3400,13 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2t1h"]
+texture = ExtResource("7_iqco3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -3433,3 +3441,4 @@ sources/1 = SubResource("TileSetAtlasSource_hjp3m")
 sources/3 = SubResource("TileSetAtlasSource_5r3xe")
 sources/4 = SubResource("TileSetAtlasSource_rt74g")
 sources/5 = SubResource("TileSetAtlasSource_ir4u6")
+sources/6 = SubResource("TileSetAtlasSource_c2t1h")
