@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://c6cfii6ooaotq"
-=======
-uid="uid://chrndw8y7fdxe"
->>>>>>> e5e3fcc3ce6ca2f5628bc8386d4bd9b42aa8d928
-path="res://.godot/imported/S_Save.png-1ee561c995daa228a4a35c0b3c93f558.ctex"
+uid="uid://bsb7lshevr5f2"
+path="res://.godot/imported/T_WaterDeep.png-78b803d44789615d8f69f8aa60a2664c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/S_Save.png"
-dest_files=["res://.godot/imported/S_Save.png-1ee561c995daa228a4a35c0b3c93f558.ctex"]
+source_file="res://art/tilesets/T_WaterDeep.png"
+dest_files=["res://.godot/imported/T_WaterDeep.png-78b803d44789615d8f69f8aa60a2664c.ctex"]
 
 [params]
 
